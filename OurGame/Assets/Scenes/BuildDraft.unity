@@ -3300,7 +3300,7 @@ GameObject:
   - component: {fileID: 1696669227}
   - component: {fileID: 1696669228}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: BuildPhaseManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3334,6 +3334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   railResources: 10
+  tileGameObjects: {fileID: 0}
   placementStage: 1
 --- !u!114 &1696669228
 MonoBehaviour:

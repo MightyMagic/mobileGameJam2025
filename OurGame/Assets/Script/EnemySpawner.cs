@@ -44,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
             spawnAreaVisualizer.transform.localScale = new Vector3(spawnerCollider.size.x, spawnerCollider.size.y, 1);
         }
 
-        StartSpawning();
+        //StartSpawning();
     }
 
     public void StartSpawning()

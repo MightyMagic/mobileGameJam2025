@@ -9,7 +9,9 @@ public class ResourceDisplayUI : MonoBehaviour
     [Tooltip("Drag the TMP_Text component you want to update here.")]
     [SerializeField] private TextMeshProUGUI resourceTextDisplay;
 
-    [SerializeField] RailMover moveScript;
+    private TextMeshProUGUI towerHp;
+
+    //[SerializeField] RailMover moveScript;
 
     [Header("Display Settings")]
     [Tooltip("A prefix to show before the number (e.g., 'Resources: ' or 'Wood: ')")]
@@ -72,7 +74,8 @@ public class ResourceDisplayUI : MonoBehaviour
                 if (TileManager.Instance.IsOccupiedNetConnected())
                 {
                     BuildManager.Instance.placementStage = false;
-                    moveScript.InitializeMover();
+                    //moveScript.InitializeMover();
+                    GameManager.Instance.BeginActionPhase();
                 }
             }
         }
