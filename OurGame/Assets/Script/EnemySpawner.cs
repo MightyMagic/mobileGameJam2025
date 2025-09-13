@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    // Класс для описания группы врагов
+    [System.Serializable]
+    public class EnemyGroup
+    {
+        public GameObject enemyPrefab;
+        public int numberOfEnemies;
+    }
+
     // Класс для описания волны врагов
     [System.Serializable]
     public class Wave
     {
         public string waveName;
-        public int numberOfEnemies;
-        public GameObject enemyPrefab;
-        public float spawnDelay;
+        public List<EnemyGroup> enemyGroups; // Список групп врагов в этой волне
     }
 
     public List<Wave> waves;
@@ -35,8 +41,6 @@ public class EnemySpawner : MonoBehaviour
 
         if (spawnAreaVisualizer != null)
         {
-            // Устанавливаем масштаб визуализатора в соответствии с размером BoxCollider2D
-            // Примечание: Vector3(size.x, size.y, 1) для 2D-визуализатора
             spawnAreaVisualizer.transform.localScale = new Vector3(spawnerCollider.size.x, spawnerCollider.size.y, 1);
         }
 
@@ -70,27 +74,28 @@ public class EnemySpawner : MonoBehaviour
                 Wave currentWave = waves[currentWaveIndex];
                 Debug.Log($"Starting wave: {currentWave.waveName}");
 
-                for (int i = 0; i < currentWave.numberOfEnemies; i++)
+                // Проходим по всем группам врагов в текущей волне
+                foreach (EnemyGroup group in currentWave.enemyGroups)
                 {
-                    Vector3 spawnPosition = GetRandomPointInCollider();
-                    Instantiate(currentWave.enemyPrefab, spawnPosition, Quaternion.identity);
-                    yield return new WaitForSeconds(currentWave.spawnDelay);
+                    // Спавним всех врагов из группы сразу
+                    for (int i = 0; i < group.numberOfEnemies; i++)
+                    {
+                        Vector3 spawnPosition = GetRandomPointInCollider();
+                        Instantiate(group.enemyPrefab, spawnPosition, Quaternion.identity);
+                    }
                 }
+
+                Debug.Log($"Wave {currentWave.waveName} finished. Waiting for next wave in {timeBetweenWaves} seconds.");
+                yield return new WaitForSeconds(timeBetweenWaves);
 
                 currentWaveIndex++;
 
-                if (currentWaveIndex < waves.Count)
-                {
-                    Debug.Log($"Wave {currentWave.waveName} finished. Waiting for next wave in {timeBetweenWaves} seconds.");
-                    yield return new WaitForSeconds(timeBetweenWaves);
-                }
-                else if (continuousSpawning)
+                if (currentWaveIndex >= waves.Count && continuousSpawning)
                 {
                     Debug.Log("All waves completed. Restarting from the beginning.");
                     currentWaveIndex = 0;
-                    yield return new WaitForSeconds(timeBetweenWaves);
                 }
-                else
+                else if (currentWaveIndex >= waves.Count && !continuousSpawning)
                 {
                     Debug.Log("All waves completed. Spawning stopped.");
                     StopSpawning();
@@ -109,9 +114,8 @@ public class EnemySpawner : MonoBehaviour
         Vector3 randomPoint = new Vector3(
             Random.Range(bounds.min.x, bounds.max.x),
             Random.Range(bounds.min.y, bounds.max.y),
-            0 // z-координата должна быть 0 для 2D-игры
+            0
         );
-
         return randomPoint;
     }
 
