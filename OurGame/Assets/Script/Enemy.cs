@@ -82,6 +82,8 @@ public class Enemy : MonoBehaviour
 
         GameManager.Instance.AddChoicePoints(choicePointsOnDeath);
 
+        ActionPhaseManager.Instance.EnemyDied();
+
         Destroy(gameObject);
     }
 
@@ -111,6 +113,7 @@ public class Enemy : MonoBehaviour
             }
         }
 
+        ActionPhaseManager.Instance.EnemyDied();
         Destroy(gameObject);
     }
 }

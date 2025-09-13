@@ -44,6 +44,8 @@ public class BuildManager : MonoBehaviour
         //tileGameObjects.SetActive(true);
         placementStage = true;
 
+        
+
         for (int i = 0; i < tileCollider.Count; ++i)
         {
             tileCollider[i].enabled = true;

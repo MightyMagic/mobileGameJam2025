@@ -64,6 +64,12 @@ public class RailMover : MonoBehaviour
         }
     }
 
+    public void DisableMover()
+    {
+        if(moverInstance != null)
+            Destroy(moverInstance);
+    }
+
     TileObject FindStartTile()
     {
         foreach (TileObject tile in tileManager.occupiedTiles)

@@ -20,7 +20,16 @@ public class EnemySpawner : MonoBehaviour
         public List<EnemyGroup> enemyGroups; // Список групп врагов в этой волне
     }
 
-    public List<Wave> waves;
+    [System.Serializable]
+    public class Level
+    {
+        public string levelName;
+        public List<Wave> waves;
+    }
+
+    public List<Level> levels = new List<Level>();
+
+    //public List<Wave> waves;
     public float timeBetweenWaves = 5f;
     public bool continuousSpawning = false;
     public GameObject spawnAreaVisualizer;
@@ -49,7 +58,8 @@ public class EnemySpawner : MonoBehaviour
 
     public void StartSpawning()
     {
-        if (!isSpawning)
+        Debug.Log("I am in the StartSpawning function of the spawner!");
+        if (!isSpawning && ActionPhaseManager.Instance.currentLevel < levels.Count)
         {
             isSpawning = true;
             StartCoroutine(SpawnWaves());
@@ -65,8 +75,20 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    public void ResetWaves()
+    {
+        currentWaveIndex = 0;
+    }
+
     IEnumerator SpawnWaves()
     {
+        List<Wave> waves = new List<Wave>();
+
+        for(int i = 0; i < levels[ActionPhaseManager.Instance.currentLevel].waves.Count; i++)
+        {
+            waves.Add(levels[ActionPhaseManager.Instance.currentLevel].waves[i]);
+        }
+
         while (isSpawning)
         {
             if (currentWaveIndex < waves.Count)
