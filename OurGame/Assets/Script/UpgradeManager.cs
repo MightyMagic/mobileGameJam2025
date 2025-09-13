@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class UpgradeManager : MonoBehaviour
 {
-    // Структура для описания карты улучшения
+    // A structure to define an upgrade card
     [System.Serializable]
     public struct UpgradeCard
     {
@@ -20,13 +19,12 @@ public class UpgradeManager : MonoBehaviour
     {
         PlayerBaseHealth,
         TurretDamage,
-        TowerDefense,
-        // Добавьте другие типы улучшений здесь
+        // Add other upgrade types here
     }
 
     [Header("Upgrade Settings")]
-    public List<UpgradeCard> availableUpgrades; // Список всех возможных улучшений
-    public float upgradeThreshold = 50f; // Сколько очков нужно для предложения улучшений
+    public List<UpgradeCard> availableUpgrades; // All possible upgrades
+    public int upgradeThreshold = 50; // Points required to trigger an upgrade choice
 
     [Header("UI Elements")]
     public GameObject upgradePanel;
@@ -34,8 +32,8 @@ public class UpgradeManager : MonoBehaviour
     public TextMeshProUGUI[] cardDescriptions;
     public TextMeshProUGUI[] cardCosts;
 
-    private bool isPanelActive = false;
     private List<UpgradeCard> currentCards = new List<UpgradeCard>();
+    private bool hasUpgradesAvailable = false;
 
     void Start()
     {
@@ -43,27 +41,36 @@ public class UpgradeManager : MonoBehaviour
         {
             upgradePanel.SetActive(false);
         }
+
+        // We subscribe to the build phase start event
+        GameManager.OnBuildPhaseStart += CheckForUpgrades;
     }
 
-    void Update()
+    private void OnDestroy()
     {
-        // Проверяем, достаточно ли у игрока очков и неактивна ли уже панель
-        if (GameManager.ChoicePoints >= upgradeThreshold && !isPanelActive)
+        // Always unsubscribe to prevent errors when the object is destroyed
+        GameManager.OnBuildPhaseStart -= CheckForUpgrades;
+    }
+
+    private void CheckForUpgrades()
+    {
+        // Check if the player has enough points and hasn't already been offered an upgrade this round
+        if (GameManager.Instance.ChoicePoints >= upgradeThreshold && !hasUpgradesAvailable)
         {
             ShowUpgradePanel();
+            hasUpgradesAvailable = true; // Mark that an upgrade is available
         }
     }
 
-    private void ShowUpgradePanel()
+    public void ShowUpgradePanel()
     {
-        isPanelActive = true;
-        Time.timeScale = 0; // Останавливаем игру
+        GameManager.Instance.PauseGame(); // Pause the game when the panel is active
         upgradePanel.SetActive(true);
 
-        // Выбираем 3 случайные карты
+        // Select 3 random cards
         currentCards = GetRandomUpgrades(3);
 
-        // Обновляем UI
+        // Update the UI
         for (int i = 0; i < currentCards.Count; i++)
         {
             cardTitles[i].text = currentCards[i].title;
@@ -72,13 +79,14 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    // Этот метод вызывается при нажатии кнопки на UI
+    // This method is called when a UI button is pressed
     public void SelectUpgrade(int index)
     {
         UpgradeCard selected = currentCards[index];
-        if (GameManager.ChoicePoints >= selected.cost)
+
+        if (GameManager.Instance.ChoicePoints >= selected.cost)
         {
-            GameManager.AddChoicePoints(-selected.cost); // Вычитаем стоимость
+            GameManager.Instance.AddChoicePoints(-selected.cost); // Subtract the cost
             ApplyUpgrade(selected);
             HideUpgradePanel();
         }
@@ -86,31 +94,27 @@ public class UpgradeManager : MonoBehaviour
 
     private void ApplyUpgrade(UpgradeCard card)
     {
-        // Здесь мы будем применять эффект улучшения
+        // Apply the upgrade effect
         switch (card.type)
         {
             case UpgradeType.PlayerBaseHealth:
-                // Увеличиваем здоровье базы
+                // Increase base health
                 PlayerBase playerBase = FindObjectOfType<PlayerBase>();
                 if (playerBase != null)
                 {
                     playerBase.maxHealth += card.value;
                     playerBase.currentHealth += card.value;
-                    // Также обновляем UI
-                    playerBase.healthSlider.maxValue = playerBase.maxHealth;
-                    playerBase.healthSlider.value = playerBase.currentHealth;
                 }
                 break;
             case UpgradeType.TurretDamage:
-                // Увеличиваем урон всех пушек
+                // Increase damage of all turrets
+                // Note: You'll need to update this to handle different turret types
                 Projectile[] projectiles = FindObjectsOfType<Projectile>();
                 foreach (var proj in projectiles)
                 {
                     proj.damage += card.value;
                 }
-                // Можно сделать то же самое для других типов урона (Rocket, Flamethrower и т.д.)
                 break;
-                // Добавьте другие случаи здесь
         }
         Debug.Log($"Applied upgrade: {card.title}");
     }
@@ -118,7 +122,7 @@ public class UpgradeManager : MonoBehaviour
     private List<UpgradeCard> GetRandomUpgrades(int count)
     {
         List<UpgradeCard> randomUpgrades = new List<UpgradeCard>();
-        List<UpgradeCard> tempUpgrades = new List<UpgradeCard>(availableUpgrades); // Копируем список
+        List<UpgradeCard> tempUpgrades = new List<UpgradeCard>(availableUpgrades);
 
         for (int i = 0; i < count; i++)
         {
@@ -132,10 +136,8 @@ public class UpgradeManager : MonoBehaviour
 
     private void HideUpgradePanel()
     {
-        isPanelActive = false;
-        Time.timeScale = 1; // Возобновляем игру
+        GameManager.Instance.ResumeGame(); // Resume the game
         upgradePanel.SetActive(false);
-        // Сбрасываем счетчик, чтобы выбор не появлялся снова сразу
-        GameManager.ChoicePoints = 0;
+        hasUpgradesAvailable = false; // Reset the flag so a new upgrade can be offered later
     }
 }
