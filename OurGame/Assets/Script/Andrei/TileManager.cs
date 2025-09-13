@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TileManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class TileManager : MonoBehaviour
 
     public List<TileObject> occupiedTiles = new List<TileObject>();
 
-
+    
 
     [Header("Tile Costs")]
     public int tileCost = 1;
@@ -110,7 +111,16 @@ public class TileManager : MonoBehaviour
         // RULE 1: If NO tiles are occupied yet, this is the first move. Any tile is valid.
         if (occupiedTiles.Count == 0)
         {
-            return true;
+            if(y == 0)
+            {
+                return true;
+            }
+            else
+            {
+                Debug.Log("Can only place the first rail on the first row!");
+                return false;
+            }
+                
         }
 
         // RULE 2: If tiles DO exist, check if this tile is adjacent to ANY of them.

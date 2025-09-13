@@ -9,6 +9,8 @@ public class ResourceDisplayUI : MonoBehaviour
     [Tooltip("Drag the TMP_Text component you want to update here.")]
     [SerializeField] private TextMeshProUGUI resourceTextDisplay;
 
+    [SerializeField] RailMover moveScript;
+
     [Header("Display Settings")]
     [Tooltip("A prefix to show before the number (e.g., 'Resources: ' or 'Wood: ')")]
     [SerializeField] private string textPrefix = "Resources: ";
@@ -66,6 +68,12 @@ public class ResourceDisplayUI : MonoBehaviour
             if (BuildManager.Instance.placementStage)
             {
                 Debug.Log("Net is connected: " + TileManager.Instance.IsOccupiedNetConnected().ToString() + " occupied list length is " + TileManager.Instance.occupiedTiles.Count);
+
+                if (TileManager.Instance.IsOccupiedNetConnected())
+                {
+                    BuildManager.Instance.placementStage = false;
+                    moveScript.InitializeMover();
+                }
             }
         }
     }

@@ -60,7 +60,6 @@ public class TileObject : MonoBehaviour
 
     public void SetFree()
     {
-       
         BuildManager.Instance.AddResources(TileManager.Instance.tileCost);
         TileManager.Instance.RemoveTile(this);
         occupied = false;

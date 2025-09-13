@@ -185,8 +185,8 @@
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@2.9.3\Editor\Views\CreateWorkspace\DrawCreateWorkspaceView.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@2.9.3\Editor\Views\Shelves\ShelvesListView.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@2.9.3\Editor\CloudDrive\Workspaces\DirectoryContent\ProcessItemsGridViewEvent.cs" />
-    <Compile Include="Library\PackageCache\com.unity.collab-proxy@2.9.3\Editor\Tool\FindTool.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@2.9.3\Editor\Configuration\CloudEdition\Welcome\OrganizationPanel.cs" />
+    <Compile Include="Library\PackageCache\com.unity.collab-proxy@2.9.3\Editor\Tool\FindTool.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@2.9.3\Editor\Views\PendingChanges\Dialogs\LaunchCheckinConflictsDialog.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@2.9.3\Editor\Views\Locks\LocksListView.cs" />
     <Compile Include="Library\PackageCache\com.unity.collab-proxy@2.9.3\Editor\Views\Merge\Developer\DirectoryConflicts\DeleteChangeMenu.cs" />
