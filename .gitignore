@@ -60,3 +60,4 @@ gradle/
 # iOS specific files
 # Unity builds these in the project root by default.
 *.ipa
+OurGame/.vs/OurGame/v17/.suo
