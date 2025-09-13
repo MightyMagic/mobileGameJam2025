@@ -24,13 +24,13 @@ public class Enemy : MonoBehaviour
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        if (rb == null)
-        {
-            Debug.LogError("Enemy requires a Rigidbody2D component to move properly!");
-            this.enabled = false;
-            return;
-        }
+        //rb = GetComponent<Rigidbody2D>();
+        //if (rb == null)
+        //{
+        //    Debug.LogError("Enemy requires a Rigidbody2D component to move properly!");
+        //    this.enabled = false;
+        //    return;
+        //}
 
         GameObject targetObject = GameObject.FindGameObjectWithTag("Target");
         if (targetObject != null)

@@ -2762,7 +2762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2008950113780575572, guid: 4421afb1b53fc0b4889faee65dd3cbfa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.55
+      value: -3.32
       objectReference: {fileID: 0}
     - target: {fileID: 2008950113780575572, guid: 4421afb1b53fc0b4889faee65dd3cbfa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3211,7 +3211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5910748473793440525, guid: 079409ec302337640ba9600623e6ed4f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -68.22
+      value: 50.6
       objectReference: {fileID: 0}
     - target: {fileID: 8180542874640010181, guid: 079409ec302337640ba9600623e6ed4f, type: 3}
       propertyPath: m_Camera
@@ -5368,12 +5368,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55831ba36265448469c55af608daccf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageOverTime: 10
-  damageInterval: 0.5
-  sawRadius: 1.03
-  sawSpeed: 200
-  enemyTag: Enemy
-  sawBladePrefab: {fileID: 7750671506809383476, guid: 5fcb84324a939474a9cbc1b8f9f66bf0, type: 3}
+  sawRotationSpeed: 200
+  bladeRotationSpeed: 500
+  sawBlade: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

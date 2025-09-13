@@ -49,6 +49,11 @@ public class GameManager : MonoBehaviour
     private static int choicePoints = 0;
     private static TextMeshProUGUI choicePointsText;
 
+    public int ChoicePoints
+    {
+        get { return choicePoints; }
+    }
+
 
     private void Awake()
     {
@@ -244,4 +249,5 @@ public class GameManager : MonoBehaviour
             choicePointsText.text = "Очки выбора: " + choicePoints;
         }
     }
+
 }
