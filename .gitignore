@@ -25,6 +25,7 @@
 
 *.vsidx
 *.sln
+*.suo
 
 # Visual Studio Code specific files
 .vscode/
