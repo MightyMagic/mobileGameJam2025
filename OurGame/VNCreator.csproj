@@ -66,8 +66,8 @@
     <Compile Include="Assets\VNCreator\Behaviors\VNCreator_EndScreen.cs" />
     <Compile Include="Assets\VNCreator\Data\GameOptions.cs" />
     <Compile Include="Assets\VNCreator\Data\StoryObject.cs" />
-    <Compile Include="Assets\VNCreator\Data\GameSaveManager.cs" />
     <Compile Include="Assets\VNCreator\Behaviors\VNCreator_OptionsMenu.cs" />
+    <Compile Include="Assets\VNCreator\Data\GameSaveManager.cs" />
     <Compile Include="Assets\VNCreator\Behaviors\VNCreator_DisplayUI.cs" />
     <Compile Include="Assets\VNCreator\Data\SaveUtility.cs" />
     <Compile Include="Assets\VNCreator\Misc\Attributes.cs" />

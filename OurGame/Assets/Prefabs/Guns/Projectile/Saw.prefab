@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7404375508412615288}
   - component: {fileID: 7982398551601624598}
+  - component: {fileID: 2238089374624093869}
   m_Layer: 0
   m_Name: Saw
   m_TagString: Untagged
@@ -169,3 +170,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2238089374624093869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7750671506809383476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cfd80d52c0105d48b59e7f4182befc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageOverTime: 10
+  damageInterval: 0.5
+  damageRadius: 0.88
+  enemyTag: Enemy

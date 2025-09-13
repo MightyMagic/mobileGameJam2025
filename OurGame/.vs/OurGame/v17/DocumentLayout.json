@@ -3,8 +3,32 @@
   "WorkspaceRootPath": "C:\\Projects\\mobileGameJam2025\\OurGame\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\SawTurret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\Turret\\SawTurret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\FlamethrowerTurret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\Turret\\FlamethrowerTurret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\Turret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\Turret\\Turret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\RocketTurret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\Turret\\RocketTurret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\Projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\Turret\\Projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\Rocket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\Turret\\Rocket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\BowTurret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\Turret\\BowTurret.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\EnemySpawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,19 +55,97 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "SawTurret.cs",
+              "DocumentMoniker": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\SawTurret.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Turret\\SawTurret.cs",
+              "ToolTip": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\SawTurret.cs",
+              "RelativeToolTip": "Assets\\Script\\Turret\\SawTurret.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAYwEoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T13:29:40.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FlamethrowerTurret.cs",
+              "DocumentMoniker": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\FlamethrowerTurret.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Turret\\FlamethrowerTurret.cs",
+              "ToolTip": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\FlamethrowerTurret.cs",
+              "RelativeToolTip": "Assets\\Script\\Turret\\FlamethrowerTurret.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAYwJcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T12:34:53.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RocketTurret.cs",
+              "DocumentMoniker": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\RocketTurret.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Turret\\RocketTurret.cs",
+              "ToolTip": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\RocketTurret.cs",
+              "RelativeToolTip": "Assets\\Script\\Turret\\RocketTurret.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAYwCoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T12:34:25.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Rocket.cs",
+              "DocumentMoniker": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\Rocket.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Turret\\Rocket.cs",
+              "ToolTip": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\Rocket.cs",
+              "RelativeToolTip": "Assets\\Script\\Turret\\Rocket.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAYwEEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T12:33:40.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BowTurret.cs",
+              "DocumentMoniker": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\BowTurret.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Turret\\BowTurret.cs",
+              "ToolTip": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\BowTurret.cs",
+              "RelativeToolTip": "Assets\\Script\\Turret\\BowTurret.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAYwCoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T12:32:49.489Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Projectile.cs",
+              "DocumentMoniker": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\Projectile.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Turret\\Projectile.cs",
+              "ToolTip": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\Projectile.cs",
+              "RelativeToolTip": "Assets\\Script\\Turret\\Projectile.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAYwCoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-13T12:32:12.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Turret.cs",
               "DocumentMoniker": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\Turret.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Turret\\Turret.cs",
               "ToolTip": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Turret\\Turret.cs",
               "RelativeToolTip": "Assets\\Script\\Turret\\Turret.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAYwDYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-13T12:29:16.609Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "PlayerBase.cs",
               "DocumentMoniker": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\PlayerBase.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\PlayerBase.cs",
@@ -55,7 +157,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\Enemy.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\Enemy.cs",
@@ -63,12 +165,11 @@
               "RelativeToolTip": "Assets\\Script\\Enemy.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T10:34:02.047Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-13T10:34:02.047Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "EnemySpawner.cs",
               "DocumentMoniker": "C:\\Projects\\mobileGameJam2025\\OurGame\\Assets\\Script\\EnemySpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\EnemySpawner.cs",
@@ -76,8 +177,7 @@
               "RelativeToolTip": "Assets\\Script\\EnemySpawner.cs",
               "ViewState": "AgIAAGgAAAAAAAAAAAAYwIIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T09:45:39.105Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-13T09:45:39.105Z"
             }
           ]
         }

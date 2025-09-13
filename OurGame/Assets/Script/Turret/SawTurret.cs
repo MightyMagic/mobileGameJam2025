@@ -1,75 +1,32 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class SawTurret : MonoBehaviour
 {
-    public float damageOverTime = 10f;
-    public float damageInterval = 0.5f;
-    public float sawRadius = 3f; // Радиус вращения пилы
-    public float sawSpeed = 200f; // Скорость вращения пилы в градусах/сек
-    public string enemyTag = "Enemy";
+    public float sawRotationSpeed = 200f; // Скорость вращения пилы вокруг турели
+    public float bladeRotationSpeed = 500f; // Скорость вращения самого диска
 
     [Header("Saw Visuals")]
-    public GameObject sawBladePrefab; // Префаб самой пилы
-    private GameObject currentSawBlade;
-
-    private Coroutine attackCoroutine;
-
-    void Start()
-    {
-        // Создаем пилу и делаем её дочерним объектом
-        if (sawBladePrefab != null)
-        {
-            currentSawBlade = Instantiate(sawBladePrefab, transform.position, Quaternion.identity, transform);
-        }
-
-        // Запускаем атаку сразу
-        attackCoroutine = StartCoroutine(AttackContinuously());
-    }
+    public Transform sawBlade; // Ссылка на сам диск пилы
 
     void Update()
     {
-        // Вращаем пилу вокруг пушки
-        if (currentSawBlade != null)
+        // Вращаем турель, чтобы пила двигалась по кругу
+        transform.Rotate(0, 0, sawRotationSpeed * Time.deltaTime);
+
+        // Вращаем сам диск пилы
+        if (sawBlade != null)
         {
-            currentSawBlade.transform.RotateAround(transform.position, Vector3.forward, sawSpeed * Time.deltaTime);
+            sawBlade.Rotate(0, 0, bladeRotationSpeed * Time.deltaTime);
         }
     }
 
-    IEnumerator AttackContinuously()
-    {
-        while (true)
-        {
-            List<Enemy> enemiesToDamage = new List<Enemy>();
-            // Находим всех врагов в радиусе пилы
-            Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, sawRadius);
-
-            foreach (var hitCollider in hitColliders)
-            {
-                if (hitCollider.CompareTag(enemyTag))
-                {
-                    Enemy enemy = hitCollider.GetComponent<Enemy>();
-                    if (enemy != null)
-                    {
-                        enemiesToDamage.Add(enemy);
-                    }
-                }
-            }
-
-            // Наносим урон всем врагам в области
-            foreach (Enemy enemy in enemiesToDamage)
-            {
-                enemy.TakeDamage(damageOverTime);
-            }
-
-            yield return new WaitForSeconds(damageInterval);
-        }
-    }
-
+    // Визуализация в редакторе (необязательно, но полезно)
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireSphere(transform.position, sawRadius);
+        if (sawBlade != null)
+        {
+            Gizmos.DrawWireSphere(transform.position, Vector3.Distance(transform.position, sawBlade.position));
+        }
     }
 }
