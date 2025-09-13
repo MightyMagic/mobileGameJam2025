@@ -10,6 +10,9 @@ public class Enemy : MonoBehaviour
     public float moveSpeed;
     public float damage;
 
+    [Header("Rewards")]
+    public int choicePointsOnDeath = 10; // Сколько очков даётся за убийство
+
     [Header("Attack Behavior")]
     public Transform target;
     public float attackDelay = 1f;
@@ -17,10 +20,18 @@ public class Enemy : MonoBehaviour
 
     private bool hasReachedTarget = false;
     private bool isAttacking = false;
+    private Rigidbody2D rb;
 
     void Awake()
     {
-        // Находим цель по тегу "Target"
+        rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            Debug.LogError("Enemy requires a Rigidbody2D component to move properly!");
+            this.enabled = false;
+            return;
+        }
+
         GameObject targetObject = GameObject.FindGameObjectWithTag("Target");
         if (targetObject != null)
         {
@@ -68,6 +79,9 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         Debug.Log($"{gameObject.name} was defeated!");
+
+        GameManager.AddChoicePoints(choicePointsOnDeath);
+
         Destroy(gameObject);
     }
 
