@@ -50,13 +50,17 @@ public class ActionPhaseManager : MonoBehaviour
     public int CalculateEnemies()
     {
         int expectedEnemies = 0;
-        for (int i = 0; i < spawner.levels[currentLevel].waves.Count; i++)
-        {
-            for (int j = 0; j < spawner.levels[currentLevel].waves[i].enemyGroups.Count; j++)
-            {
-                expectedEnemies += spawner.levels[currentLevel].waves[i].enemyGroups[j].numberOfEnemies;
-            }
 
+        if(currentLevel < spawner.levels.Count)
+        {
+            for (int i = 0; i < spawner.levels[currentLevel].waves.Count; i++)
+            {
+                for (int j = 0; j < spawner.levels[currentLevel].waves[i].enemyGroups.Count; j++)
+                {
+                    expectedEnemies += spawner.levels[currentLevel].waves[i].enemyGroups[j].numberOfEnemies;
+                }
+
+            }
         }
 
         return expectedEnemies;
