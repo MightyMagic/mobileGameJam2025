@@ -4,6 +4,12 @@ public enum UpgradeType
     Equipment_Saw,
     Equipment_MachineGun,
     Equipment_Rocket,
+
+    Upgrade_Flamethrower, // Апгрейд существующего огнемёта
+    Upgrade_Saw,          // Апгрейд пилы
+    Upgrade_MachineGun,   // Апгрейд пулемёта
+    Upgrade_Rocket,       // Апгрейд ракетной установки
+
     Rail,
-    // Добавьте другие типы улучшений здесь
+    // Другие типы улучшений
 }
