@@ -237,7 +237,7 @@ public class GameManager : MonoBehaviour
         // UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuSceneName");
     }
 
-    public static void AddChoicePoints(int amount)
+    public void AddChoicePoints(int amount)
     {
         choicePoints += amount;
     }

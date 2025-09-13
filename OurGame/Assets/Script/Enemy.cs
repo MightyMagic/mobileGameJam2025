@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log($"{gameObject.name} was defeated!");
 
-        GameManager.AddChoicePoints(choicePointsOnDeath);
+        GameManager.Instance.AddChoicePoints(choicePointsOnDeath);
 
         Destroy(gameObject);
     }
