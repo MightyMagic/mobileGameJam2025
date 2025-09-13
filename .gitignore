@@ -1,3 +1,55 @@
-﻿Library
-Temp
-Logs
+﻿[Tt]emp/
+[Ll]ibrary/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Ss]nape_screenshots/
+[Mm]anifest.json
+[Tt]humbnails/
+*.unitypackage
+*.pdb
+*.pidb
+*.pidb.meta
+*.csproj
+*.sln
+*.user
+*.userprefs
+*.suo
+*.sln.docstates
+*.psess
+*.vssscc
+*.vspscc
+*.vssscc
+*.vspscc.meta
+
+*.vsidx
+
+# Visual Studio Code specific files
+.vscode/
+
+# Rider specific files
+.idea/
+
+# macOS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+__MACOSX
+
+# Windows specific files
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Android specific files
+# Unity builds these in the project root by default.
+gradle/
+*.apk
+*.aab
+
+# iOS specific files
+# Unity builds these in the project root by default.
+*.ipa
