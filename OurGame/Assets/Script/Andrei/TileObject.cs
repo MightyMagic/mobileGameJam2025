@@ -4,17 +4,55 @@ using UnityEngine;
 
 public class TileObject : MonoBehaviour
 {
-    public bool ocuppied = false;
-    public Collider2D collider;
+    public int x;
+    public int y;
+
+    public bool occupied = false; // Corrected spelling
+    private Collider2D touchCollider;
+    private SpriteRenderer spriteRenderer;
+
+    public Sprite originalSprite;
+    public Sprite ocuppiedSprite;
 
     void Start()
     {
-        
+        touchCollider = this.transform.GetChild(0).GetComponent<Collider2D>();
+        spriteRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    
+
+    void OnMouseDown()
     {
-        
+        Debug.Log("The object was clicked!");
+        Clicked();
+    }
+
+    public void Clicked()
+    {
+
+        TileManager.Instance.AttemptOccupyTile(this);
+
+        //if (!occupied)
+        //{
+        //    occupied = true;
+        //    spriteRenderer.color = Color.red;
+        //
+        //}
+        //else
+        //{
+        //
+        //}
+
+        //spriteRenderer.sprite = ocuppiedSprite;
+    }
+
+    public void SetOccupied()
+    {
+        occupied = true;
+        spriteRenderer.color = Color.red;
+
+        // Uncomment this if you prefer using the sprite swap
+        // spriteRenderer.sprite = occupiedSprite;
     }
 }

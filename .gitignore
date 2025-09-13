@@ -24,6 +24,7 @@
 *.vspscc.meta
 
 *.vsidx
+*.sln
 
 # Visual Studio Code specific files
 .vscode/
