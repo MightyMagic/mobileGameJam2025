@@ -58,4 +58,15 @@ public class ResourceDisplayUI : MonoBehaviour
             resourceTextDisplay.text = textPrefix + "---";
         }
     }
+
+    public void StartFight()
+    {
+        if(BuildManager.Instance != null)
+        {
+            if (BuildManager.Instance.placementStage)
+            {
+                Debug.Log("Net is connected: " + TileManager.Instance.IsOccupiedNetConnected().ToString() + " occupied list length is " + TileManager.Instance.occupiedTiles.Count);
+            }
+        }
+    }
 }

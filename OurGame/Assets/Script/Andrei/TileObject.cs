@@ -8,6 +8,8 @@ public class TileObject : MonoBehaviour
     public int y;
 
     public bool occupied = false; // Corrected spelling
+    public bool canPlace = true;
+
     private Collider2D touchCollider;
     private SpriteRenderer spriteRenderer;
 
@@ -54,5 +56,14 @@ public class TileObject : MonoBehaviour
 
         // Uncomment this if you prefer using the sprite swap
         // spriteRenderer.sprite = occupiedSprite;
+    }
+
+    public void SetFree()
+    {
+       
+        BuildManager.Instance.AddResources(TileManager.Instance.tileCost);
+        TileManager.Instance.RemoveTile(this);
+        occupied = false;
+        spriteRenderer.color = Color.white;
     }
 }

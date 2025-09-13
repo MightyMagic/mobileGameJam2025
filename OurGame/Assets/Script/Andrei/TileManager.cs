@@ -7,10 +7,14 @@ public class TileManager : MonoBehaviour
     public static TileManager Instance { get; private set; }
 
     [SerializeField] List<TileObject> tileObjects = new List<TileObject>();
-    private List<TileObject> occupiedTiles = new List<TileObject>();
+    [SerializeField] int tilesInLine = 7;
+
+    public List<TileObject> occupiedTiles = new List<TileObject>();
+
+
 
     [Header("Tile Costs")]
-    [SerializeField] private int tileCost = 1;
+    public int tileCost = 1;
 
 
 
@@ -36,7 +40,7 @@ public class TileManager : MonoBehaviour
    
     void Start()
     {
-        
+        AssignCoordinates(); 
     }
 
     void Update()
@@ -50,12 +54,16 @@ public class TileManager : MonoBehaviour
         // First check: Is this specific tile already occupied? If yes, do nothing.
         if (tile.occupied)
         {
-            Debug.Log("Tile already occupied.");
+            if(BuildManager.Instance.placementStage)
+            {
+                tile.SetFree();
+                Debug.Log("Tile is free again!");
+            }
             return;
         }
 
         // Second check: Is this a valid placement according to game rules?
-        if (IsValidPlacement(tile.x, tile.y))
+        if (IsValidPlacement(tile.x, tile.y) && TileByCoords(tile.x, tile.y).canPlace)
         {
 
             // Check resource rules by asking the BuildManager
@@ -74,6 +82,26 @@ public class TileManager : MonoBehaviour
             // If invalid (not adjacent): Do nothing (or play an error sound)
             Debug.Log("Invalid move. Must place adjacent to an existing tile.");
         }
+    }
+
+    public void RemoveTile(TileObject tile)
+    {
+        if (tile.occupied)
+        {
+            for (int i = 0; i < occupiedTiles.Count; i++)
+            {
+                if (tile.x == occupiedTiles[i].x && tile.y == occupiedTiles[i].y)
+                {
+                    occupiedTiles.RemoveAt(i);
+                    return;
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Doesnt exist in occupied tiles array!");
+        }
+        
     }
 
     // 3. NEW: This function holds the actual game logic.
@@ -118,5 +146,90 @@ public class TileManager : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void AssignCoordinates()
+    {
+        int x = 0;
+        int y = 0;
+
+        for(int i = 0; i < tileObjects.Count;i++)
+        {
+            if(x < tilesInLine)
+            {
+                
+            }
+            else
+            {
+                x -= tilesInLine;
+                y++;
+            }
+
+            tileObjects[i].x = x;
+            tileObjects[i].y = y;
+
+            x++;
+        }
+    }
+
+    public bool IsOccupiedNetConnected()
+    {
+        // --- 1. Handle Edge Cases ---
+        // If there are no tiles or only one tile occupied, the net is "connected" by default.
+        if (occupiedTiles.Count <= 1)
+        {
+            return true;
+        }
+
+        // --- 2. Prepare for Traversal (BFS) ---
+        // We need a Set to track all tiles we've already visited. A HashSet is very fast.
+        HashSet<TileObject> visitedTiles = new HashSet<TileObject>();
+
+        // We need a Queue to manage which tiles to check next.
+        Queue<TileObject> tileQueue = new Queue<TileObject>();
+
+        // --- 3. Start the Search ---
+        // Pick any occupied tile to be our starting point (the first one in the list is fine).
+        TileObject startTile = occupiedTiles[0];
+        tileQueue.Enqueue(startTile);
+        visitedTiles.Add(startTile);
+
+        // --- 4. Run the Traversal Loop (Flood Fill) ---
+        // This loop continues as long as there are tiles in our "to-do" queue.
+        while (tileQueue.Count > 0)
+        {
+            // Get the next tile from the queue
+            TileObject currentTile = tileQueue.Dequeue();
+
+            // Now, we must find all neighbors OF THIS TILE...
+            // ...that are ALSO in the occupiedTiles list.
+            foreach (TileObject otherOccupiedTile in occupiedTiles)
+            {
+                // Skip checking the tile against itself
+                if (otherOccupiedTile == currentTile) continue;
+
+                // Check for 4-direction adjacency (same logic from IsValidPlacement)
+                int xDist = Mathf.Abs(currentTile.x - otherOccupiedTile.x);
+                int yDist = Mathf.Abs(currentTile.y - otherOccupiedTile.y);
+
+                if (xDist + yDist == 1) // This is an adjacent, occupied neighbor
+                {
+                    // If this neighbor is one we haven't visited yet...
+                    if (!visitedTiles.Contains(otherOccupiedTile))
+                    {
+                        // ...add it to the set (so we don't check it again)
+                        visitedTiles.Add(otherOccupiedTile);
+                        // ...and add it to the queue (so we will check ITS neighbors next).
+                        tileQueue.Enqueue(otherOccupiedTile);
+                    }
+                }
+            }
+        }
+
+        // --- 5. Check the Result ---
+        // After the loop finishes, 'visitedTiles' contains every tile we could reach from the start tile.
+        // If the number of visited tiles equals the TOTAL number of occupied tiles,
+        // it means we reached everyone, and the net is connected.
+        return visitedTiles.Count == occupiedTiles.Count;
     }
 }

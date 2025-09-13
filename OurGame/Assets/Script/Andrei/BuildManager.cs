@@ -18,6 +18,8 @@ public class BuildManager : MonoBehaviour
     // Public getter so other scripts can read the total
     public int RailResources => railResources;
 
+    public bool placementStage = true;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
