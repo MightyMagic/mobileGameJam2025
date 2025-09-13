@@ -73,8 +73,10 @@
     <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
     <Compile Include="Assets\Script\RailMover.cs" />
     <Compile Include="Assets\Script\Andrei\BuildManager.cs" />
+    <Compile Include="Assets\Script\Turret\MachineGunTurret.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\Andrei\TileObject.cs" />
+    <Compile Include="Assets\Script\Turret\Projectile\SawBladeDamage.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
     <Compile Include="Assets\Script\Andrei\ResourceDisplayUI.cs" />

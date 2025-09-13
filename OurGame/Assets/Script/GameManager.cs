@@ -1,4 +1,5 @@
-using System;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -43,6 +44,10 @@ public class GameManager : MonoBehaviour
     public static event Action OnGameResumed;
     public static event Action OnGameOver;
     public static event Action OnVictory;
+
+    //Choices 
+    private static int choicePoints = 0;
+    private static TextMeshProUGUI choicePointsText;
 
 
     private void Awake()
@@ -225,5 +230,18 @@ public class GameManager : MonoBehaviour
         ChangeState(GameState.MainMenu);
         // Add scene loading logic here:
         // UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenuSceneName");
+    }
+
+    public static void AddChoicePoints(int amount)
+    {
+        choicePoints += amount;
+    }
+
+    private static void UpdateChoicePointsText()
+    {
+        if (choicePointsText != null)
+        {
+            choicePointsText.text = "Очки выбора: " + choicePoints;
+        }
     }
 }
