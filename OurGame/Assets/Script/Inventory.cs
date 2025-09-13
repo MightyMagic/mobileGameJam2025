@@ -7,9 +7,9 @@ public class Inventory : MonoBehaviour
     // Singleton
     public static Inventory Instance { get; private set; }
 
-    public event Action<Item> OnItemAdded;
+    public event Action<UpgradeData> OnItemAdded;
 
-    private List<Item> items = new List<Item>();
+    private List<UpgradeData> items = new List<UpgradeData>();
     public int maxSlots = 6;
 
     private void Awake()
@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public bool AddItem(Item item)
+    public bool AddItem(UpgradeData item)
     {
         if (items.Count >= maxSlots)
         {
@@ -37,17 +37,8 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    public List<Item> GetItems()
+    public List<UpgradeData> GetItems()
     {
         return items;
     }
-}
-
-// Базовый класс для предметов
-[Serializable]
-public class Item
-{
-    public string itemName;
-    public Sprite itemIcon;
-    public string itemDescription;
 }

@@ -4,16 +4,22 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    public List<Image> inventorySlots; // Список слотов, который мы заполним в инспекторе
+    [Tooltip("Список UI-объектов, представляющих слоты инвентаря. Заполняется вручную.")]
+    public List<Image> inventorySlots;
 
-    // Ссылка на компонент спрайта самого предмета, внутри каждого слота.
-    // Если у вас в слоте только одно изображение, то это не нужно.
-    // Если же у вас есть рамка, а внутри нее иконка, то нам нужна ссылка на иконку.
+    [Tooltip("Список UI-объектов, представляющих иконки предметов внутри слотов.")]
     public List<Image> itemIcons;
 
-    void Start()
+    private void Start()
     {
-        // Подписываемся на событие добавления предмета
+        // Убедитесь, что количество UI-слотов соответствует максимальному количеству слотов в инвентаре
+        if (inventorySlots.Count != Inventory.Instance.maxSlots || itemIcons.Count != Inventory.Instance.maxSlots)
+        {
+            Debug.LogError("Количество слотов в UI не совпадает с размером инвентаря!");
+            return;
+        }
+
+        // Подписываемся на событие добавления предмета в инвентарь
         Inventory.Instance.OnItemAdded += OnItemAdded;
 
         // При старте скрываем все иконки предметов, чтобы слоты были пустыми
@@ -21,28 +27,40 @@ public class InventoryUI : MonoBehaviour
         {
             icon.enabled = false;
         }
+
+        // Обновляем UI на случай, если инвентарь уже содержит предметы
+        UpdateUI();
     }
 
-    private void OnItemAdded(Item item)
+    private void OnDestroy()
+    {
+        // Отписываемся от события, чтобы избежать ошибок, если объект UI будет уничтожен
+        if (Inventory.Instance != null)
+        {
+            Inventory.Instance.OnItemAdded -= OnItemAdded;
+        }
+    }
+
+    private void OnItemAdded(UpgradeData item)
     {
         UpdateUI();
     }
 
     private void UpdateUI()
     {
-        List<Item> currentItems = Inventory.Instance.GetItems();
+        List<UpgradeData> currentItems = Inventory.Instance.GetItems();
 
-        for (int i = 0; i < inventorySlots.Count; i++)
+        for (int i = 0; i < itemIcons.Count; i++)
         {
             if (i < currentItems.Count)
             {
-                // Если в рюкзаке есть предмет, показываем его
-                itemIcons[i].sprite = currentItems[i].itemIcon;
+                // Если в рюкзаке есть предмет, показываем его иконку из UpgradeData
+                itemIcons[i].sprite = currentItems[i].inventoryIcon;
                 itemIcons[i].enabled = true; // Делаем иконку видимой
             }
             else
             {
-                // Если слоты пустые, скрываем их
+                // Если слоты пустые, скрываем иконки
                 itemIcons[i].enabled = false;
             }
         }
