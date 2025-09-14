@@ -8,6 +8,6 @@ public class MenuManager : MonoBehaviour
     {
         // Загружаем сцену по имени. Убедитесь, что имя 'GameScene'
         // совпадает с именем вашей игровой сцены.
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("PrototypeFinal");
     }
 }
