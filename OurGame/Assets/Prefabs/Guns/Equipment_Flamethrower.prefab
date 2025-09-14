@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1589368716931324523, guid: f5f07693e1a4a62418668261e1eeb528, type: 3}
       propertyPath: m_Name
-      value: Equipment_Flamethrower_Flamethrower
+      value: Equipment_Flamethrower
       objectReference: {fileID: 0}
     - target: {fileID: 2174071676215547655, guid: f5f07693e1a4a62418668261e1eeb528, type: 3}
       propertyPath: m_Color.b
@@ -91,8 +91,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageOverTime: 5
   damageInterval: 0.25
-  attackRadius: 2.88
+  attackRadius: 3
   coneAngle: 45
+  rotationSpeed: 10
   enemyTag: Enemy
   fireEffectPrefab: {fileID: 3569830891096340623, guid: 786a269cad7165149aaacfc03ed745ea, type: 3}
   fireEffectSpawnPoint: {fileID: 0}

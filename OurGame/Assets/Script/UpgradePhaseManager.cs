@@ -7,7 +7,7 @@ public class UpgradePhaseManager : MonoBehaviour
     public static UpgradePhaseManager Instance;
 
    private void Awake()
-    {
+   {
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -17,5 +17,5 @@ public class UpgradePhaseManager : MonoBehaviour
             Instance = this;
             // DontDestroyOnLoad(gameObject);
         }
-    }
+   }
 }
