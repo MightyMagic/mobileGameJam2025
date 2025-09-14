@@ -80,12 +80,12 @@ public class ActionPhaseManager : MonoBehaviour
     public void EveryoneDied()
     {
         currentLevel++;
+        //moveScript.DisableMover(); // Эта строка не нужна здесь.
+        //GameManager.Instance.BeginBuildPhase(); // Заменяем этот вызов
 
-        //canvasObject.SetActive(false);
-
-        moveScript.DisableMover();
-
-        GameManager.Instance.BeginBuildPhase();
+        // Вместо прямого вызова Build-фазы, мы возвращаемся к менеджеру апгрейдов
+        // Он проверит, нужно ли показывать карточки, и только потом запустит Build-фазу
+        GameManager.Instance.BeginUpgradeCheck();
     }
 
     // This runs when the action phase starts

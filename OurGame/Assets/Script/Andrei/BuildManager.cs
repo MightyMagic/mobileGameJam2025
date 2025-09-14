@@ -79,11 +79,11 @@ public class BuildManager : MonoBehaviour
 
 
     // 1. Subscribe to the event when this object is enabled
-    void OnEnable()
-    {
-        //GameManager.OnBuildPhaseStart += EnableBuilding;
-        GameManager.OnActionPhaseStart += DisableBuilding;
-    }
+    // void OnEnable()
+    // {
+    //     // GameManager.OnBuildPhaseStart += EnableBuilding; // Удалите/закомментируйте эту строку
+    //     GameManager.OnActionPhaseStart += DisableBuilding;
+    // }
 
     // 2. ALWAYS unsubscribe when the object is disabled to prevent errors
     void OnDisable()
