@@ -241,5 +241,5 @@ MonoBehaviour:
       - enemyPrefab: {fileID: 7640025541906828725, guid: 0836cdbe1b5bc4941bd553eb9486c665, type: 3}
         numberOfEnemies: 5
   timeBetweenWaves: 10
-  continuousSpawning: 1
+  continuousSpawning: 0
   spawnAreaVisualizer: {fileID: 0}
