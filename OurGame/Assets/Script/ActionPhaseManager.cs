@@ -30,7 +30,7 @@ public class ActionPhaseManager : MonoBehaviour
         }
     }
 
-    private void EnableAction()
+    public void EnableAction()
     {
         Debug.Log("Action PHASE STARTED: Enabling action tools!");
 
@@ -104,7 +104,7 @@ public class ActionPhaseManager : MonoBehaviour
     void OnEnable()
     {
         GameManager.OnActionPhaseStart += EnableAction;
-        GameManager.OnBuildPhaseStart -= DisableAction;
+        GameManager.OnBuildPhaseStart += DisableAction;
     }
 
     // 2. ALWAYS unsubscribe when the object is disabled to prevent errors

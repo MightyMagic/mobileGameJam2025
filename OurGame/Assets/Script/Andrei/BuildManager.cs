@@ -62,7 +62,7 @@ public class BuildManager : MonoBehaviour
     }
 
     // This runs when the action phase starts
-    private void DisableBuilding()
+    public void DisableBuilding()
     {
 
 
