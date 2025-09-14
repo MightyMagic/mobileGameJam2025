@@ -5,6 +5,7 @@ public class BowTurret : MonoBehaviour
     public Transform firePoint;
     public GameObject projectilePrefab;
     public float fireRate = 1f;
+    public float rotationSpeed = 10f; // Добавлена скорость поворота
 
     private Turret baseTurret;
     private float fireCountdown = 0f;
@@ -20,6 +21,12 @@ public class BowTurret : MonoBehaviour
         {
             return;
         }
+
+        // --- ЛОГИКА ПОВОРОТА К ЦЕЛИ ---
+        Vector2 direction = (Vector2)baseTurret.currentTarget.position - (Vector2)transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
         if (fireCountdown <= 0f)
         {
