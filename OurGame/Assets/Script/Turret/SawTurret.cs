@@ -8,6 +8,11 @@ public class SawTurret : MonoBehaviour
     [Header("Saw Visuals")]
     public Transform sawBlade; // —сылка на сам диск пилы
 
+    private void Start()
+    {
+        AudioManager.Instance.PlaySound(SoundType.Saw);
+    }
+
     void Update()
     {
         // ¬ращаем турель, чтобы пила двигалась по кругу
