@@ -8,26 +8,31 @@ public class PlayerEquipmentManager : MonoBehaviour
     public GameObject flamethrowerPrefab;
     public GameObject sawPrefab;
     public GameObject machineGunPrefab;
+    public GameObject rocketPrefab;
 
     // Вспомогательный метод для активации нужного оружия
     public void EquipWeapon(UpgradeType type)
     {
         // Деактивируем все оружия, чтобы не было конфликта
-        flamethrowerPrefab.SetActive(false);
-        sawPrefab.SetActive(false);
-        machineGunPrefab.SetActive(false);
+        if (flamethrowerPrefab != null) flamethrowerPrefab.SetActive(false);
+        if (sawPrefab != null) sawPrefab.SetActive(false);
+        if (machineGunPrefab != null) machineGunPrefab.SetActive(false);
+        if (rocketPrefab != null) rocketPrefab.SetActive(false);
 
         // Активируем нужный префаб на основе типа апгрейда
         switch (type)
         {
             case UpgradeType.Equipment_Flamethrower:
-                flamethrowerPrefab.SetActive(true);
+                if (flamethrowerPrefab != null) flamethrowerPrefab.SetActive(true);
                 break;
             case UpgradeType.Equipment_Saw:
-                sawPrefab.SetActive(true);
+                if (sawPrefab != null) sawPrefab.SetActive(true);
                 break;
             case UpgradeType.Equipment_MachineGun:
-                machineGunPrefab.SetActive(true);
+                if (machineGunPrefab != null) machineGunPrefab.SetActive(true);
+                break;
+            case UpgradeType.Equipment_Rocket:
+                if (rocketPrefab != null) rocketPrefab.SetActive(true);
                 break;
         }
     }

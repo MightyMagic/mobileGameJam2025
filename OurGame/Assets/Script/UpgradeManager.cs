@@ -21,9 +21,10 @@ public class UpgradeManager : MonoBehaviour
 
     [Header("Weapon Component References")]
     public FlameThrowerWeapon flameThrowerWeapon;
-    public SawWeapon sawWeapon; // <-- Добавлено
-    public MachineGunWeapon machineGunWeapon; // <-- Добавлено
-    public RocketWeapon rocketWeapon; // <-- Добавлено
+    // Убедитесь, что вы добавили эти ссылки в Inspector
+    public SawWeapon sawWeapon;
+    public MachineGunWeapon machineGunWeapon;
+    public RocketWeapon rocketWeapon;
 
     private void Awake()
     {
@@ -149,7 +150,6 @@ public class UpgradeManager : MonoBehaviour
                 {
                     Inventory.Instance.AddItem(card);
                     Inventory.Instance.EquipItem(card);
-
                     flameThrowerWeapon.ActivateWeapon(card);
                 }
                 break;
@@ -165,15 +165,19 @@ public class UpgradeManager : MonoBehaviour
             case UpgradeType.Equipment_Saw:
                 if (sawWeapon != null)
                 {
+                    // Сначала добавляем предмет в инвентарь
                     Inventory.Instance.AddItem(card);
+                    // Затем экипируем его
                     Inventory.Instance.EquipItem(card);
+
+                    // Активируем компонент оружия
                     sawWeapon.ActivateWeapon(card);
                 }
                 break;
             case UpgradeType.Upgrade_Saw:
                 if (sawWeapon != null)
                 {
-                    //sawWeapon.UpgradeWeapon(card);
+                    sawWeapon.UpgradeWeapon(card);
                 }
                 break;
 
@@ -186,6 +190,12 @@ public class UpgradeManager : MonoBehaviour
                     machineGunWeapon.ActivateWeapon(card);
                 }
                 break;
+            case UpgradeType.Upgrade_MachineGun:
+                if (machineGunWeapon != null)
+                {
+                    machineGunWeapon.UpgradeWeapon(card);
+                }
+                break;
 
             // --- ROCKET ---
             case UpgradeType.Equipment_Rocket:
@@ -196,11 +206,10 @@ public class UpgradeManager : MonoBehaviour
                     rocketWeapon.ActivateWeapon(card);
                 }
                 break;
-
             case UpgradeType.Upgrade_Rocket:
                 if (rocketWeapon != null)
                 {
-                    // Логика апгрейда ракетницы
+                    rocketWeapon.UpgradeWeapon(card);
                 }
                 break;
 
@@ -221,14 +230,17 @@ public class UpgradeManager : MonoBehaviour
     {
         if (Inventory.Instance == null) return false;
 
+        // Loop through all items in our inventory
         foreach (var item in Inventory.Instance.GetItems())
         {
+            // Check if any item's type matches the base equipment type we're looking for
             if (item.type == baseEquipmentType)
             {
-                return true;
+                return true; // We found it!
             }
         }
-        return false;
+
+        return false; // We don't own it
     }
 
     // Вспомогательный метод для получения базового типа пушки из апгрейда
