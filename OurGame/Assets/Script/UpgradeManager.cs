@@ -14,7 +14,6 @@ public class UpgradeManager : MonoBehaviour
     public GameObject upgradePanel;
     public TextMeshProUGUI[] cardTitles;
     public TextMeshProUGUI[] cardDescriptions;
-    public TextMeshProUGUI[] cardCosts;
     public UnityEngine.UI.Image[] cardIcons;
 
     private List<UpgradeData> currentCards = new List<UpgradeData>();
@@ -62,7 +61,6 @@ public class UpgradeManager : MonoBehaviour
         {
             if (cardTitles[i] != null) cardTitles[i].text = currentCards[i].upgradeName;
             if (cardDescriptions[i] != null) cardDescriptions[i].text = currentCards[i].description;
-            if (cardCosts[i] != null) cardCosts[i].text = "Стоимость: " + currentCards[i].cost;
             if (cardIcons[i] != null) cardIcons[i].sprite = currentCards[i].cardIcon;
         }
     }
