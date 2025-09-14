@@ -56,6 +56,8 @@ public class PlayerBase : MonoBehaviour
     private void Die()
     {
         Debug.Log("Game Over!");
+
+        GameOver.Instance.ShowGameOverScreen();
         // Добавьте сюда логику конца игры
     }
 }

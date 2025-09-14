@@ -5599,6 +5599,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 379837170}
     m_Modifications:
     - target: {fileID: 1276075750488894735, guid: 4421afb1b53fc0b4889faee65dd3cbfa, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276075750488894735, guid: 4421afb1b53fc0b4889faee65dd3cbfa, type: 3}
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1306502148}
@@ -7989,9 +7993,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665eb4185a73e504b8db9caac8c6ad0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuScene: MainMenu
-  gameLevelScene: GameLevel
-  gameOverScene: GameOver
+  mainMenuScene: StartScene
+  gameLevelScene: PrototypeFinal
+  gameOverScene: StartScene
 --- !u!1001 &1778665287
 PrefabInstance:
   m_ObjectHideFlags: 0
