@@ -62,6 +62,7 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
     <Compile Include="Assets\Script\Turret\Turret.cs" />
     <Compile Include="Assets\Script\Turret\BowTurret.cs" />
+    <Compile Include="Assets\Script\MenuManager.cs" />
     <Compile Include="Assets\Script\Turret\RocketTurret.cs" />
     <Compile Include="Assets\Script\ActionPhaseManager.cs" />
     <Compile Include="Assets\Script\UpgradeButtonLinker.cs" />
