@@ -12,7 +12,7 @@ public class RailMover : MonoBehaviour
 {
     [Header("Setup")]
     [Tooltip("The prefab to spawn on the track (e.g., your train)")]
-    [SerializeField] private GameObject moverPrefab;
+    private GameObject moverPrefab;
 
     [Header("Movement Settings")]
     [Tooltip("How fast the mover travels between tiles (in Unity units per second)")]
@@ -27,7 +27,7 @@ public class RailMover : MonoBehaviour
     public FixedJoystick joystick;
 
     // --- State Management ---
-    private GameObject moverInstance; // The actual spawned object
+    [SerializeField]  private GameObject moverInstance; // The actual spawned object
     private TileManager tileManager;
     private TileObject currentTile;    // The tile we are currently "at" (our last destination)
     private TileObject targetTile;     // The tile we are currently "moving towards"
@@ -42,17 +42,23 @@ public class RailMover : MonoBehaviour
             return;
         }
 
+        moverInstance.SetActive(false);
         //InitializeMover();
     }
 
     public void InitializeMover()
     {
+
+        moverInstance.SetActive(true);
         TileObject startTile = FindStartTile();
 
         if (startTile != null)
         {
             currentTile = startTile;
-            moverInstance = Instantiate(moverPrefab, currentTile.transform.position, Quaternion.identity);
+            //moverInstance = Instantiate(moverPrefab, currentTile.transform.position, Quaternion.identity);
+
+            moverInstance.transform.position = startTile.transform.position;
+            moverInstance.transform.rotation = Quaternion.identity;
 
             // We start "at a node," so targetTile is null, indicating we are ready for input.
             targetTile = null;
@@ -67,7 +73,8 @@ public class RailMover : MonoBehaviour
     public void DisableMover()
     {
         if(moverInstance != null)
-            Destroy(moverInstance);
+            moverInstance.SetActive(false);
+            //Destroy(moverInstance);
     }
 
     TileObject FindStartTile()
@@ -146,14 +153,17 @@ public class RailMover : MonoBehaviour
         int targetX = currentTile.x + dx;
         int targetY = currentTile.y + dy;
 
-        TileObject potentialTarget = tileManager.TileByCoords(targetX, targetY);
-
-        // This is the "rail switch." We only set a target IF a tile exists AND it's occupied (part of the track).
-        if (potentialTarget != null && potentialTarget.occupied)
+        if(moverInstance.activeInHierarchy) 
         {
-            targetTile = potentialTarget; // SUCCESS! This triggers the movement state.
+            TileObject potentialTarget = tileManager.TileByCoords(targetX, targetY);
+
+            // This is the "rail switch." We only set a target IF a tile exists AND it's occupied (part of the track).
+            if (potentialTarget != null && potentialTarget.occupied)
+            {
+                targetTile = potentialTarget; // SUCCESS! This triggers the movement state.
+            }
+            // else: Invalid move (off-grid or not a rail tile). Do nothing.
+            // We stay in STATE 2, waiting for a VALID input direction.
         }
-        // else: Invalid move (off-grid or not a rail tile). Do nothing.
-        // We stay in STATE 2, waiting for a VALID input direction.
     }
 }

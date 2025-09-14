@@ -9,7 +9,7 @@ public class ActionPhaseManager : MonoBehaviour
     public static ActionPhaseManager Instance;
 
     [SerializeField] private RailMover moveScript;
-    [SerializeField] private GameObject canvasObject;
+    //[SerializeField] private GameObject canvasObject;
     [SerializeField] EnemySpawner spawner;
 
     public int currentLevel = 0;
@@ -34,7 +34,7 @@ public class ActionPhaseManager : MonoBehaviour
     {
         Debug.Log("Action PHASE STARTED: Enabling action tools!");
 
-        canvasObject.SetActive(true);
+        //canvasObject.SetActive(true);
 
         deathsThisLevel = 0;
 
@@ -81,7 +81,7 @@ public class ActionPhaseManager : MonoBehaviour
     {
         currentLevel++;
 
-        canvasObject.SetActive(false);
+        //canvasObject.SetActive(false);
 
         moveScript.DisableMover();
 
@@ -96,7 +96,7 @@ public class ActionPhaseManager : MonoBehaviour
 
         currentLevel++;
 
-        canvasObject.SetActive(false);
+        //canvasObject.SetActive(false);
 
         moveScript.DisableMover();
     }

@@ -184,6 +184,9 @@ public class TileManager : MonoBehaviour
 
     public bool IsOccupiedNetConnected()
     {
+        if(occupiedTiles.Count < 1)
+            return false;
+
         // --- 1. Handle Edge Cases ---
         // If there are no tiles or only one tile occupied, the net is "connected" by default.
         if (occupiedTiles.Count <= 1)

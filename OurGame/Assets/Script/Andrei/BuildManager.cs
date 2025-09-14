@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
+
+    //[SerializeField] UpgradeManager upgradeManager;
     // 1. Singleton
     public static BuildManager Instance { get; private set; }
 
@@ -37,8 +39,10 @@ public class BuildManager : MonoBehaviour
     }
 
     // This is the method we want to run when the build phase starts.
-    private void EnableBuilding()
+    public void EnableBuilding()
     {
+       
+
         Debug.Log("BUILD PHASE STARTED: Enabling build tools!");
 
         //tileGameObjects.SetActive(true);
@@ -77,14 +81,14 @@ public class BuildManager : MonoBehaviour
     // 1. Subscribe to the event when this object is enabled
     void OnEnable()
     {
-        GameManager.OnBuildPhaseStart += EnableBuilding;
+        //GameManager.OnBuildPhaseStart += EnableBuilding;
         GameManager.OnActionPhaseStart += DisableBuilding;
     }
 
     // 2. ALWAYS unsubscribe when the object is disabled to prevent errors
     void OnDisable()
     {
-        GameManager.OnBuildPhaseStart -= EnableBuilding;
+        //GameManager.OnBuildPhaseStart -= EnableBuilding;
         GameManager.OnActionPhaseStart -= DisableBuilding;
     }
 

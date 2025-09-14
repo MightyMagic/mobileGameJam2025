@@ -46,8 +46,8 @@ public class GameManager : MonoBehaviour
     public static event Action OnVictory;
 
     //Choices 
-    private static int choicePoints = 0;
-    private static TextMeshProUGUI choicePointsText;
+    public static int choicePoints = 0;
+    public TextMeshProUGUI choicePointsText;
 
     public int ChoicePoints
     {
@@ -240,14 +240,12 @@ public class GameManager : MonoBehaviour
     public void AddChoicePoints(int amount)
     {
         choicePoints += amount;
+        UpdateChoicePointsText();
     }
 
-    private static void UpdateChoicePointsText()
+    private void UpdateChoicePointsText()
     {
-        if (choicePointsText != null)
-        {
-            choicePointsText.text = "Очки выбора: " + choicePoints;
-        }
+         choicePointsText.text = "Очки выбора: " + choicePoints;
     }
 
 }

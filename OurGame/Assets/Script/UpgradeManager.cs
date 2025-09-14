@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -18,34 +18,47 @@ public class UpgradeManager : MonoBehaviour
     private List<UpgradeData> currentCards = new List<UpgradeData>();
     private bool hasUpgradesAvailable = false;
 
-    void Start()
+    [Header("Weapons on the player")]
+    [SerializeField] FlameThrowerWeapon flameThrower;
+
+    void OnEnable()
     {
         if (upgradePanel != null)
         {
             upgradePanel.SetActive(false);
         }
 
-        GameManager.OnBuildPhaseStart += CheckForUpgrades;
+        //GameManager.OnBuildPhaseStart += CheckForUpgrades;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         GameManager.OnBuildPhaseStart -= CheckForUpgrades;
     }
 
-    private void CheckForUpgrades()
+
+    public void CheckForUpgrades()
     {
         if (GameManager.Instance.ChoicePoints >= upgradeThreshold && !hasUpgradesAvailable)
         {
+            // Player has points and we haven't shown the panel yet.
+            // Show the panel and PAUSE the game. Do NOT start the build phase.
             ShowUpgradePanel();
             hasUpgradesAvailable = true;
+        }
+        else
+        {
+            // Player has no points OR the panel was already dealt with.
+            // Proceed immediately to the build phase.
+            BuildManager.Instance.EnableBuilding();
         }
     }
 
     public void ShowUpgradePanel()
     {
-        GameManager.Instance.PauseGame();
         upgradePanel.SetActive(true);
+        GameManager.Instance.PauseGame();
+
 
         currentCards = GetRandomUpgrades(3);
 
@@ -82,6 +95,9 @@ public class UpgradeManager : MonoBehaviour
         {
             case UpgradeType.Equipment_Flamethrower:
                 Debug.Log("Применено улучшение: Огнемёт.");
+
+                flameThrower.ApplyUpgradeStats(card);
+
                 // Здесь добавьте логику, которая дает игроку огнемёт или улучшает его
                 break;
             case UpgradeType.Equipment_Saw:
@@ -198,5 +214,7 @@ public class UpgradeManager : MonoBehaviour
         GameManager.Instance.ResumeGame();
         upgradePanel.SetActive(false);
         hasUpgradesAvailable = false;
+
+        BuildManager.Instance.EnableBuilding();
     }
 }
