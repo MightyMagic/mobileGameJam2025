@@ -86,6 +86,7 @@
     <Compile Include="Assets\Script\Turret\MachineGunTurret.cs" />
     <Compile Include="Assets\Script\SoundManager.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
+    <Compile Include="Assets\Script\AudioManager.cs" />
     <Compile Include="Assets\Script\Andrei\TileObject.cs" />
     <Compile Include="Assets\TextMesh Pro\BezierTextCurve.cs" />
     <Compile Include="Assets\Script\WeaponScripts\FlameThrowerWeapon.cs" />
