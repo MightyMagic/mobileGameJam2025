@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cdf344753367641b66afb2c68c32d9, type: 3}
   m_Name: Equipment_Flamethrower
   m_EditorClassIdentifier: 
-  upgradeName: "\u042D\u043A\u0432\u0438\u043F \u041E\u0433\u043D\u0435\u043C\u0435\u0442\u0430"
-  description: 
+  upgradeName: "\u041E\u0433\u043D\u0435\u043C\u0451\u0442"
+  description: "\u041A\u043E\u0440\u043E\u0442\u043A\u0438\u0439 \u043A\u043E\u043D\u0443\u0441
+    \u043F\u043B\u0430\u043C\u0435\u043D\u0438 \u043F\u043E\u0434\u0436\u0438\u0433\u0430\u0435\u0442
+    \u043F\u0430\u0447\u043A\u0438 \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u043E\u0432"
   cost: 10
-  cardIcon: {fileID: 21300000, guid: 1ffcbd6de2c829c4588e6d3991e9c965, type: 3}
-  inventoryIcon: {fileID: 21300000, guid: 1ffcbd6de2c829c4588e6d3991e9c965, type: 3}
+  cardIcon: {fileID: 21300000, guid: 72ee77cdac1685248848845c41505975, type: 3}
+  inventoryIcon: {fileID: 21300000, guid: 72ee77cdac1685248848845c41505975, type: 3}
   type: 0
   value: 1

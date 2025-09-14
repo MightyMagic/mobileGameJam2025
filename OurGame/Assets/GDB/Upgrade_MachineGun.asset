@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cdf344753367641b66afb2c68c32d9, type: 3}
   m_Name: Upgrade_MachineGun
   m_EditorClassIdentifier: 
-  upgradeName: 
-  description: 
+  upgradeName: "\u0423\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u0435 \u043F\u0443\u043B\u0435\u043C\u0451\u0442\u0430"
+  description: "\u0412\u044B\u0448\u0435 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0440\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C
+    \u0438 \u0443\u0440\u043E\u043D;"
   cost: 10
-  cardIcon: {fileID: 0}
-  inventoryIcon: {fileID: 0}
+  cardIcon: {fileID: 21300000, guid: 9debd2b4f95257c488aa6f14bec571ec, type: 3}
+  inventoryIcon: {fileID: 21300000, guid: 9debd2b4f95257c488aa6f14bec571ec, type: 3}
   type: 6
   value: 1
