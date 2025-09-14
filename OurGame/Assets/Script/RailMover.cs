@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -79,11 +81,25 @@ public class RailMover : MonoBehaviour
 
     TileObject FindStartTile()
     {
-        foreach (TileObject tile in tileManager.occupiedTiles)
+        //foreach (TileObject tile in tileManager.occupiedTiles)
+        //{
+        //    if (tile.y == 0) return tile;
+        //}
+        //return null;
+
+        List<TileObject> tilesToSearch = tileManager.occupiedTiles;
+
+        if (tilesToSearch == null || !tilesToSearch.Any())
         {
-            if (tile.y == 0) return tile;
+            return null;
         }
-        return null;
+
+        // 1. Find the minimum Y value
+        int minY = tilesToSearch.Min(tile => tile.y);
+
+        // 2. Return the FIRST tile that matches that minimum Y
+        // (This is deterministic; it is NOT random)
+        return tilesToSearch.FirstOrDefault(tile => tile.y == minY);
     }
 
     void Update()
