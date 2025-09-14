@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageOverTime: 3
-  damageInterval: 0.06
+  damageInterval: 0.1
   attackRadius: 3
   coneAngle: 45
   rotationSpeed: 10
