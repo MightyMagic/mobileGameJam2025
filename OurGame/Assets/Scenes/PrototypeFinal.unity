@@ -10284,6 +10284,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 245101567}
     - target: {fileID: 6413977959001646867, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
+      propertyPath: availableUpgrades.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413977959001646867, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
       propertyPath: cardDescriptions.Array.data[0]
       value: 
       objectReference: {fileID: 666206887}
@@ -10295,6 +10299,14 @@ PrefabInstance:
       propertyPath: cardDescriptions.Array.data[2]
       value: 
       objectReference: {fileID: 1394687841}
+    - target: {fileID: 6413977959001646867, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
+      propertyPath: availableUpgrades.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 360226c09565b1447b8e1d7ae63a58b3, type: 2}
+    - target: {fileID: 6413977959001646867, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
+      propertyPath: availableUpgrades.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 02efab751222a754db110ee3c84b7267, type: 2}
     - target: {fileID: 6494993250062858653, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
       propertyPath: joystick
       value: 
