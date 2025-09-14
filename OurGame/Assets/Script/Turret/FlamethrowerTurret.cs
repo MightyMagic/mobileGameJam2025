@@ -104,6 +104,9 @@ public class FlamethrowerTurret : MonoBehaviour
         if (currentFireEffectInstance != null)
         {
             currentFireEffectInstance.SetActive(true);
+
+            AudioManager.Instance.PlaySound(SoundType.FlameThrower);
+
             if (fireEffectAnimator != null)
             {
                 fireEffectAnimator.SetBool(animatorTriggerName, true);

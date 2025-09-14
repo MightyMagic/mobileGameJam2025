@@ -14,6 +14,8 @@ public class MachineGunTurret : MonoBehaviour
     void Start()
     {
         baseTurret = GetComponent<Turret>();
+
+        
     }
 
     void Update()
@@ -43,6 +45,8 @@ public class MachineGunTurret : MonoBehaviour
     {
         GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Projectile projectile = bulletGO.GetComponent<Projectile>();
+
+        AudioManager.Instance.PlaySound(SoundType.MachineGun);
 
         if (projectile != null)
         {
