@@ -1788,6 +1788,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2295761532754293195, guid: f0687b39d611be04b849c1c72ddcf31c, type: 3}
   m_PrefabInstance: {fileID: 306636983}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &308470088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2426093861694857823, guid: ad71e84c2d48c7341be82748e04b134a, type: 3}
+  m_PrefabInstance: {fileID: 895614666}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &311253102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3983,6 +3988,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1966964904588234596, guid: ad71e84c2d48c7341be82748e04b134a, type: 3}
+      propertyPath: rocketPrefab
+      value: 
+      objectReference: {fileID: 308470088}
     - target: {fileID: 4101135072237334482, guid: ad71e84c2d48c7341be82748e04b134a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7187,6 +7196,9 @@ GameObject:
   - component: {fileID: 1567804337}
   - component: {fileID: 1567804339}
   - component: {fileID: 1567804340}
+  - component: {fileID: 1567804343}
+  - component: {fileID: 1567804342}
+  - component: {fileID: 1567804341}
   m_Layer: 0
   m_Name: PlayerEquipment
   m_TagString: Untagged
@@ -7248,9 +7260,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flamethrower: {fileID: 1567804339}
-  saw: {fileID: 0}
-  machineGun: {fileID: 0}
-  rocket: {fileID: 0}
+  saw: {fileID: 1567804341}
+  machineGun: {fileID: 1567804343}
+  rocket: {fileID: 1567804342}
+--- !u!114 &1567804341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567804336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a3396f7027c884598c950623cf5c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  maxLevel: 8
+--- !u!114 &1567804342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567804336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd96ed5c15fdfa4bbfd6cc04eb4c31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  maxLevel: 8
+--- !u!114 &1567804343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567804336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77d6aa39b936bf4289e8c4cfff69fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  maxLevel: 8
 --- !u!1 &1582926636
 GameObject:
   m_ObjectHideFlags: 0
@@ -8020,6 +8074,9 @@ MonoBehaviour:
   - {fileID: 1394687843}
   - {fileID: 1040615490}
   flameThrowerWeapon: {fileID: 1567804339}
+  sawWeapon: {fileID: 1567804341}
+  machineGunWeapon: {fileID: 1567804343}
+  rocketWeapon: {fileID: 1567804342}
 --- !u!114 &1755531222
 MonoBehaviour:
   m_ObjectHideFlags: 0
