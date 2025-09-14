@@ -44,23 +44,26 @@ public class ActionPhaseManager : MonoBehaviour
 
     private void UpdateEquippedWeaponFromInventory()
     {
-        // Получаем текущий активный предмет из инвентаря
-        UpgradeData equippedItem = Inventory.Instance.GetEquippedItem();
+        // Получаем весь список экипированных предметов
+        List<UpgradeData> equippedItems = Inventory.Instance.GetEquippedItems();
 
-        if (equippedItem != null)
+        if (equippedItems != null && equippedItems.Count > 0)
         {
-            playerEquipmentManager.EquipWeapon(equippedItem.type);
+            // Перебираем каждый предмет в списке
+            foreach (var item in equippedItems)
+            {
+                playerEquipmentManager.EquipWeapon(item.type);
+            }
         }
         else
         {
-            Debug.LogWarning("No weapon is currently equipped!");
+            Debug.LogWarning("No weapons are currently equipped!");
         }
     }
 
     public int CalculateEnemies()
     {
         int expectedEnemies = 0;
-
         if (currentLevel < spawner.levels.Count)
         {
             for (int i = 0; i < spawner.levels[currentLevel].waves.Count; i++)
@@ -71,14 +74,12 @@ public class ActionPhaseManager : MonoBehaviour
                 }
             }
         }
-
         return expectedEnemies;
     }
 
     public void EnemyDied()
     {
         deathsThisLevel++;
-
         if (deathsThisLevel >= expectedDeathsThisLevel && expectedDeathsThisLevel > 0)
         {
             Debug.Log("Everyone died!!!!!!!!!!");
@@ -102,11 +103,5 @@ public class ActionPhaseManager : MonoBehaviour
     {
         GameManager.OnActionPhaseStart += EnableAction;
         GameManager.OnBuildPhaseStart += DisableAction;
-    }
-
-    void OnDisable()
-    {
-        GameManager.OnActionPhaseStart -= EnableAction;
-        GameManager.OnBuildPhaseStart -= DisableAction;
     }
 }
