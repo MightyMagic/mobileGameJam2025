@@ -153,7 +153,7 @@ MonoBehaviour:
     - waveName: 2
       enemyGroups:
       - enemyPrefab: {fileID: 7173117024943400354, guid: f8fac8f86e7492f42811efb3f599faa2, type: 3}
-        numberOfEnemies: 2
+        numberOfEnemies: 1
       - enemyPrefab: {fileID: 5268751617523113595, guid: dc3d6e1624304ee42bb5510d9c399ad9, type: 3}
         numberOfEnemies: 1
   - levelName: 2
