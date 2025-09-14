@@ -202,6 +202,7 @@ public class UpgradeManager : MonoBehaviour
             // --- OTHER ---
             case UpgradeType.Rail:
                 // Logic for Rail
+                BuildManager.Instance.AddResources((int)card.value);
                 break;
 
             default:
