@@ -65,7 +65,7 @@ public class ResourceDisplayUI : MonoBehaviour
 
     public bool DoChecks()
     {
-        actionButton.SetActive(false);
+        //actionButton.SetActive(false);
         Debug.Log("Pressing to begin attack phase!!!!");
 
         if (BuildManager.Instance != null)

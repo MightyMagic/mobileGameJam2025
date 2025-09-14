@@ -29,25 +29,32 @@ public class ActionPhaseManager : MonoBehaviour
         }
     }
 
-    public void EnableAction()
+    public void JumpToAction()
     {
         if (resourceScript.DoChecks())
         {
-            Debug.Log("Action PHASE STARTED: Enabling action tools!");
-
-            //actionButton.SetActive(false);
-
-            deathsThisLevel = 0;
-            expectedDeathsThisLevel = CalculateEnemies();
-
-            moveScript.InitializeMover();
-            Debug.Log("I start spawning in the manager");
-
-            spawner.ResetWaves();
-            spawner.StartSpawning();
-
-            UpdateEquippedWeaponFromInventory();
+            EnableAction();
         }
+    }
+
+    public void EnableAction()
+    {
+
+         Debug.Log("Action PHASE STARTED: Enabling action tools!");
+
+         //actionButton.SetActive(false);
+
+         deathsThisLevel = 0;
+         expectedDeathsThisLevel = CalculateEnemies();
+
+         moveScript.InitializeMover();
+         Debug.Log("I start spawning in the manager");
+
+         spawner.ResetWaves();
+         spawner.StartSpawning();
+
+         UpdateEquippedWeaponFromInventory();
+
     }
 
     private void UpdateEquippedWeaponFromInventory()
