@@ -475,6 +475,7 @@ GameObject:
   - component: {fileID: 1504776234661515919}
   - component: {fileID: 1180421012345602230}
   - component: {fileID: 1365402606901947860}
+  - component: {fileID: 7837316100525808386}
   m_Layer: 5
   m_Name: Sound
   m_TagString: Untagged
@@ -583,9 +584,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Pause
+      - m_Target: {fileID: 7837316100525808386}
+        m_TargetAssemblyTypeName: SoundToggleButton, Assembly-CSharp
+        m_MethodName: ToggleSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -595,6 +596,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7837316100525808386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205170034722638538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd006dc09b45fe4694d32bef3759cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundOnIcon: {fileID: 21300000, guid: 211ae58e13b52914cb08e91f9969820e, type: 3}
+  soundOffIcon: {fileID: 21300000, guid: 99d77df48dd86f2439adc92a084089f9, type: 3}
 --- !u!1 &1249170271923546511
 GameObject:
   m_ObjectHideFlags: 0

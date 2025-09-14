@@ -553,11 +553,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2295761532754293195, guid: f0687b39d611be04b849c1c72ddcf31c, type: 3}
   m_PrefabInstance: {fileID: 82811485}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &116952632 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8218072406496396496, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
-  m_PrefabInstance: {fileID: 7927160341252330104}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &118914864
 GameObject:
   m_ObjectHideFlags: 0
@@ -3146,17 +3141,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2295761532754293195, guid: f0687b39d611be04b849c1c72ddcf31c, type: 3}
   m_PrefabInstance: {fileID: 648966121}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &649185041 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4948355763499152900, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
-  m_PrefabInstance: {fileID: 7927160341252330104}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 526caf69e78a3204389be98db1dbe29a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &660348846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6568,10 +6552,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 183031415}
     m_Modifications:
-    - target: {fileID: 1365402606901947860, guid: 079409ec302337640ba9600623e6ed4f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 116952632}
     - target: {fileID: 3768278335938533377, guid: 079409ec302337640ba9600623e6ed4f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -6652,10 +6632,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7156125309734457544, guid: 079409ec302337640ba9600623e6ed4f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 649185041}
     - target: {fileID: 7997653699676930141, guid: 079409ec302337640ba9600623e6ed4f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -10294,6 +10270,7 @@ MonoBehaviour:
   firePoint: {fileID: 7929139170917317376}
   projectilePrefab: {fileID: 8179899813597904054, guid: b287cd79d62dc4f4d8881ad2cb310953, type: 3}
   fireRate: 1
+  rotationSpeed: 10
 --- !u!212 &7867927067827372532
 SpriteRenderer:
   m_ObjectHideFlags: 0
