@@ -28,7 +28,7 @@ public class UpgradeManager : MonoBehaviour
             upgradePanel.SetActive(false);
         }
 
-        //GameManager.OnBuildPhaseStart += CheckForUpgrades;
+        GameManager.OnBuildPhaseStart += CheckForUpgrades;
     }
 
     private void OnDisable()
