@@ -63,6 +63,28 @@ public class ResourceDisplayUI : MonoBehaviour
         }
     }
 
+    public bool DoChecks()
+    {
+        //actionButton.SetActive(false);
+        Debug.Log("Pressing to begin attack phase!!!!");
+
+        if (BuildManager.Instance != null)
+        {
+            if (BuildManager.Instance.placementStage)
+            {
+                Debug.Log("Net is connected: " + TileManager.Instance.IsOccupiedNetConnected().ToString() + " occupied list length is " + TileManager.Instance.occupiedTiles.Count);
+
+                return TileManager.Instance.IsOccupiedNetConnected();
+                
+            }
+
+            return false;
+        }
+
+        return false;
+    }
+
+
     public void StartFight()
     {
         actionButton.SetActive(false);

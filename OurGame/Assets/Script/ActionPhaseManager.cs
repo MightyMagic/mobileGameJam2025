@@ -11,6 +11,7 @@ public class ActionPhaseManager : MonoBehaviour
     [SerializeField] private PlayerEquipmentManager playerEquipmentManager;
 
     [SerializeField] GameObject actionButton;
+    [SerializeField] ResourceDisplayUI resourceScript;
 
     public int currentLevel = 0;
     public int deathsThisLevel;
@@ -28,22 +29,32 @@ public class ActionPhaseManager : MonoBehaviour
         }
     }
 
+    public void JumpToAction()
+    {
+        if (resourceScript.DoChecks())
+        {
+            EnableAction();
+        }
+    }
+
     public void EnableAction()
     {
-        Debug.Log("Action PHASE STARTED: Enabling action tools!");
 
-        //actionButton.SetActive(false);
+         Debug.Log("Action PHASE STARTED: Enabling action tools!");
 
-        deathsThisLevel = 0;
-        expectedDeathsThisLevel = CalculateEnemies();
+         //actionButton.SetActive(false);
 
-        moveScript.InitializeMover();
-        Debug.Log("I start spawning in the manager");
+         deathsThisLevel = 0;
+         expectedDeathsThisLevel = CalculateEnemies();
 
-        spawner.ResetWaves();
-        spawner.StartSpawning();
+         moveScript.InitializeMover();
+         Debug.Log("I start spawning in the manager");
 
-        UpdateEquippedWeaponFromInventory();
+         spawner.ResetWaves();
+         spawner.StartSpawning();
+
+         UpdateEquippedWeaponFromInventory();
+
     }
 
     private void UpdateEquippedWeaponFromInventory()

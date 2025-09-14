@@ -42,6 +42,8 @@ public class BowTurret : MonoBehaviour
         GameObject projectileGO = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         Projectile projectile = projectileGO.GetComponent<Projectile>();
 
+        AudioManager.Instance.PlaySound(SoundType.DefaultGun);
+
         if (projectile != null)
         {
             projectile.Seek(baseTurret.currentTarget);
