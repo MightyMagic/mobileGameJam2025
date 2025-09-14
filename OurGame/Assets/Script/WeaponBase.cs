@@ -26,7 +26,7 @@ public abstract class WeaponBase : MonoBehaviour
     {
         if (currentLevel >= maxLevel) return;
 
-        currentLevel++;
+        //currentLevel++;
         ApplyUpgradeStats(data); // Apply new stats
         Debug.Log($"UPGRADED: {this.GetType().Name} to Level {currentLevel}");
     }

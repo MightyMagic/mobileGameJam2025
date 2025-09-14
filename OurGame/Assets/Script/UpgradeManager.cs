@@ -19,16 +19,19 @@ public class UpgradeManager : MonoBehaviour
     private List<UpgradeData> currentCards = new List<UpgradeData>();
     private bool hasUpgradesAvailable = false;
 
+    [Header("Weapon Component References")]
+    public FlameThrowerWeapon flameThrowerWeapon;
+
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+       if (Instance == null)
+       {
+           Instance = this;
+       }
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     void Start()
@@ -139,27 +142,55 @@ public class UpgradeManager : MonoBehaviour
     {
         switch (card.type)
         {
+            // --- FLAMETHROWER ---
             case UpgradeType.Equipment_Flamethrower:
-                // Здесь логика для огнемёта
-                break;
-            case UpgradeType.Equipment_Saw:
-                // Здесь логика для пилы
-                break;
-            case UpgradeType.Equipment_MachineGun:
-                // Здесь логика для пулемёта
-                break;
-            case UpgradeType.Equipment_Rocket:
-                // Здесь логика для ракетной установки
+                if (flameThrowerWeapon != null)
+                {
+                    flameThrowerWeapon.ActivateWeapon(card); // Activates the component
+                    Inventory.Instance.AddItem(card); // Adds to inventory so we know we own it
+                }
                 break;
             case UpgradeType.Upgrade_Flamethrower:
+                if (flameThrowerWeapon != null)
+                {
+                    flameThrowerWeapon.UpgradeWeapon(card); // Calls the upgrade logic
+                }
+                break;
+
+            // --- SAW ---
+            case UpgradeType.Equipment_Saw:
+                // if (sawWeapon != null) {
+                //    sawWeapon.ActivateWeapon(card);
+                //    Inventory.Instance.AddItem(card);
+                // }
+                break;
             case UpgradeType.Upgrade_Saw:
+                // if (sawWeapon != null) {
+                //     sawWeapon.UpgradeWeapon(card);
+                // }
+                break;
+
+            // --- MACHINE GUN ---
+            case UpgradeType.Equipment_MachineGun:
+                // Logic for Machine Gun activate
+                break;
             case UpgradeType.Upgrade_MachineGun:
+                // Logic for Machine Gun upgrade
+                break;
+
+            // --- ROCKET ---
+            case UpgradeType.Equipment_Rocket:
+                // Logic for Rocket activate
+                break;
             case UpgradeType.Upgrade_Rocket:
-                // Здесь логика для апгрейдов пушек
+                // Logic for Rocket upgrade
                 break;
+
+            // --- OTHER ---
             case UpgradeType.Rail:
-                // Здесь логика для рельсов
+                // Logic for Rail
                 break;
+
             default:
                 Debug.LogWarning($"Unknown upgrade type: {card.type}");
                 break;
@@ -168,10 +199,21 @@ public class UpgradeManager : MonoBehaviour
     }
 
     // Вспомогательный метод для проверки наличия пушки
-    private bool PlayerHasEquipment(UpgradeType type)
+    private bool PlayerHasEquipment(UpgradeType baseEquipmentType)
     {
-        // Пока не реализовано
-        return false;
+        if (Inventory.Instance == null) return false;
+
+        // Loop through all items in our inventory
+        foreach (var item in Inventory.Instance.GetItems())
+        {
+            // Check if any item's type matches the base equipment type we're looking for
+            if (item.type == baseEquipmentType)
+            {
+                return true; // We found it!
+            }
+        }
+
+        return false; // We don't own it
     }
 
     // Вспомогательный метод для получения базового типа пушки из апгрейда

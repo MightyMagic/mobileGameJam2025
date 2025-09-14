@@ -22,6 +22,7 @@ public class FlameThrowerWeapon : WeaponBase
                 {
                     weaponValues.damageInterval = weaponUpgrades[i].damageInterval;
                     weaponValues.damageOverTime = weaponUpgrades[i].damageOverTime;
+                    currentLevel = (int)data.value;
                 }
             }
 

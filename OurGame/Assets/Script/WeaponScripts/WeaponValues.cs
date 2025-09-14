@@ -12,4 +12,5 @@ public class WeaponValues
     public float damage;
     public float damageOverTime;
     public float damageInterval;
+
 }

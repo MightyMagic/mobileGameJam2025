@@ -94,7 +94,7 @@ public class ActionPhaseManager : MonoBehaviour
 
         Debug.Log("Build PHASE Started: Disabling action tools.");
 
-        currentLevel++;
+        //currentLevel++;
 
         //canvasObject.SetActive(false);
 

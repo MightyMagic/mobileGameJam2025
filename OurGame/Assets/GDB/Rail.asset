@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cdf344753367641b66afb2c68c32d9, type: 3}
   m_Name: Rail
   m_EditorClassIdentifier: 
-  upgradeName: 
+  upgradeName: Rail
   description: 
   cost: 10
   cardIcon: {fileID: 0}
   inventoryIcon: {fileID: 0}
-  type: 4
+  type: 8
   value: 2

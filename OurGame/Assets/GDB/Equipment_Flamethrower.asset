@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cdf344753367641b66afb2c68c32d9, type: 3}
   m_Name: Equipment_Flamethrower
   m_EditorClassIdentifier: 
-  upgradeName: 
+  upgradeName: "\u042D\u043A\u0432\u0438\u043F \u041E\u0433\u043D\u0435\u043C\u0435\u0442\u0430"
   description: 
   cost: 10
   cardIcon: {fileID: 21300000, guid: 1ffcbd6de2c829c4588e6d3991e9c965, type: 3}
