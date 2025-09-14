@@ -9,13 +9,13 @@ public class ResourceDisplayUI : MonoBehaviour
     [Tooltip("Drag the TMP_Text component you want to update here.")]
     [SerializeField] private TextMeshProUGUI resourceTextDisplay;
 
-    private TextMeshProUGUI towerHp;
-
     //[SerializeField] RailMover moveScript;
 
     [Header("Display Settings")]
     [Tooltip("A prefix to show before the number (e.g., 'Resources: ' or 'Wood: ')")]
     [SerializeField] private string textPrefix = "Resources: ";
+
+    [SerializeField] GameObject actionButton;
 
 
     // 2. SUBSCRIBE to the event when this object is enabled
@@ -65,6 +65,9 @@ public class ResourceDisplayUI : MonoBehaviour
 
     public void StartFight()
     {
+        actionButton.SetActive(false);
+        Debug.Log("Pressing to begin attack phase!!!!");
+
         if(BuildManager.Instance != null)
         {
             if (BuildManager.Instance.placementStage)
@@ -75,6 +78,7 @@ public class ResourceDisplayUI : MonoBehaviour
                 {
                     BuildManager.Instance.placementStage = false;
                     //moveScript.InitializeMover();
+                    //ActionPhaseManager.Instance.EnableAction();
                     GameManager.Instance.BeginActionPhase();
                 }
             }

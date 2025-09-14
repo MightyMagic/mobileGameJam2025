@@ -10,6 +10,8 @@ public class ActionPhaseManager : MonoBehaviour
     [SerializeField] EnemySpawner spawner;
     [SerializeField] private PlayerEquipmentManager playerEquipmentManager;
 
+    [SerializeField] GameObject actionButton;
+
     public int currentLevel = 0;
     public int deathsThisLevel;
     public int expectedDeathsThisLevel = 0;
@@ -29,6 +31,8 @@ public class ActionPhaseManager : MonoBehaviour
     public void EnableAction()
     {
         Debug.Log("Action PHASE STARTED: Enabling action tools!");
+
+        //actionButton.SetActive(false);
 
         deathsThisLevel = 0;
         expectedDeathsThisLevel = CalculateEnemies();
@@ -96,6 +100,7 @@ public class ActionPhaseManager : MonoBehaviour
     private void DisableAction()
     {
         Debug.Log("Build PHASE Started: Disabling action tools.");
+        actionButton.SetActive(true);
         moveScript.DisableMover();
     }
 

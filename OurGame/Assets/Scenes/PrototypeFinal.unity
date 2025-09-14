@@ -950,6 +950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceTextDisplay: {fileID: 0}
   textPrefix: 'Rails: '
+  actionButton: {fileID: 0}
 --- !u!1 &185568114
 GameObject:
   m_ObjectHideFlags: 0
@@ -3145,15 +3146,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2295761532754293195, guid: f0687b39d611be04b849c1c72ddcf31c, type: 3}
   m_PrefabInstance: {fileID: 648966121}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &649185039 stripped
+--- !u!114 &649185041 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6698551315094956647, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4948355763499152900, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
   m_PrefabInstance: {fileID: 7927160341252330104}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 901e2002463f48e449c3ad4aa74e0c68, type: 3}
+  m_Script: {fileID: 11500000, guid: 526caf69e78a3204389be98db1dbe29a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &660348846
@@ -3552,6 +3553,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2295761532754293195, guid: f0687b39d611be04b849c1c72ddcf31c, type: 3}
   m_PrefabInstance: {fileID: 777193424}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &808523399 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6732404288914239403, guid: 079409ec302337640ba9600623e6ed4f, type: 3}
+  m_PrefabInstance: {fileID: 1394687839}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &852085386
 GameObject:
   m_ObjectHideFlags: 0
@@ -4342,6 +4354,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2295761532754293195, guid: f0687b39d611be04b849c1c72ddcf31c, type: 3}
   m_PrefabInstance: {fileID: 995783246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1000163890 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6266434211700159126, guid: 079409ec302337640ba9600623e6ed4f, type: 3}
+  m_PrefabInstance: {fileID: 1394687839}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1002577188
 GameObject:
@@ -6638,7 +6655,7 @@ PrefabInstance:
     - target: {fileID: 7156125309734457544, guid: 079409ec302337640ba9600623e6ed4f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 649185039}
+      objectReference: {fileID: 649185041}
     - target: {fileID: 7997653699676930141, guid: 079409ec302337640ba9600623e6ed4f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -10345,6 +10362,14 @@ PrefabInstance:
       propertyPath: choicePointsText
       value: 
       objectReference: {fileID: 1007204476}
+    - target: {fileID: 4948355763499152900, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
+      propertyPath: actionButton
+      value: 
+      objectReference: {fileID: 1000163890}
+    - target: {fileID: 4948355763499152900, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
+      propertyPath: resourceTextDisplay
+      value: 
+      objectReference: {fileID: 808523399}
     - target: {fileID: 5558209622940502778, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5428146
@@ -10437,6 +10462,10 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 971133696}
+    - target: {fileID: 6698551315094956647, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
+      propertyPath: actionButton
+      value: 
+      objectReference: {fileID: 1000163890}
     - target: {fileID: 6698551315094956647, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
       propertyPath: playerEquipmentManager
       value: 
