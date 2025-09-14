@@ -20,17 +20,20 @@ public class Enemy : MonoBehaviour
 
     private bool hasReachedTarget = false;
     private bool isAttacking = false;
-    private Rigidbody2D rb;
+
+    int effectCount = 0;
+
+    [SerializeField] private GameObject deathEffectPrefab;
 
     void Awake()
     {
         //rb = GetComponent<Rigidbody2D>();
         //if (rb == null)
-        //{
-        //    Debug.LogError("Enemy requires a Rigidbody2D component to move properly!");
-        //    this.enabled = false;
-        //    return;
-        //}
+        // {
+        //     Debug.LogError("Enemy requires a Rigidbody2D component to move properly!");
+        //     this.enabled = false;
+        //     return;
+        // }
 
         GameObject targetObject = GameObject.FindGameObjectWithTag("Target");
         if (targetObject != null)
@@ -76,15 +79,50 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    // --- THIS IS THE FUNCTION YOU ASKED FOR ---
+    /// <summary>
+    /// Spawns the death effect at the enemy's current position.
+    /// </summary>
+    private IEnumerator SpawnDeathEffect()
+    {
+
+        GameObject boom = new GameObject();
+        // First, check if the prefab has actually been assigned in the inspector
+        if (deathEffectPrefab != null)
+        {
+            // Spawn the prefab at this enemy's position and with no rotation.
+            boom = Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+        }
+
+        GetComponent<SpriteRenderer>().enabled = false;
+
+        yield return new WaitForSeconds(0.6f);
+
+        if (boom != null)
+            Destroy(boom);
+
+        Destroy(gameObject);
+
+    }
+
     private void Die()
     {
         Debug.Log($"{gameObject.name} was defeated!");
 
-        GameManager.Instance.AddChoicePoints(choicePointsOnDeath);
+        // Use the existing effectCount check to ensure ALL death logic runs only once.
+        if (effectCount < 1)
+        {
+            effectCount++; // Increment the counter immediately to prevent re-entry
 
-        ActionPhaseManager.Instance.EnemyDied();
+            // Move the reward logic inside this check
+            GameManager.Instance.AddChoicePoints(choicePointsOnDeath);
+            ActionPhaseManager.Instance.EnemyDied();
 
-        Destroy(gameObject);
+            // Start the death effect
+            StartCoroutine(SpawnDeathEffect());
+        }
+
+        //Destroy(gameObject);
     }
 
     IEnumerator AttackTarget()

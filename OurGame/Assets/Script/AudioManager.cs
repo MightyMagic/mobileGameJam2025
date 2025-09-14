@@ -13,6 +13,7 @@ public enum SoundType
     MachineGun,
     DefaultGun,
     Rocket,
+    ZombieDeath,
     GameWin
 }
 

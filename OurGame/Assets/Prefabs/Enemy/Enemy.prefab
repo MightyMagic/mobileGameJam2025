@@ -106,6 +106,7 @@ MonoBehaviour:
   target: {fileID: 0}
   attackDelay: 1
   attackRange: 1
+  deathEffectPrefab: {fileID: 598094023017923559, guid: 0914211733e4db84999945b0e2849cc8, type: 3}
 --- !u!70 &6687364939183037708
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

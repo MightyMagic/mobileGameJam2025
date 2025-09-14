@@ -188,7 +188,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceTextDisplay: {fileID: 0}
   textPrefix: 
-  actionButton: {fileID: 0}
 --- !u!1 &2135062897607268738
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +496,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2069641530807301002, guid: 9499ff64b68cb284e81d41100107e2e8, type: 3}
       propertyPath: sounds.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2069641530807301002, guid: 9499ff64b68cb284e81d41100107e2e8, type: 3}
       propertyPath: sounds.Array.data[2].type
@@ -516,7 +515,23 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2069641530807301002, guid: 9499ff64b68cb284e81d41100107e2e8, type: 3}
+      propertyPath: sounds.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a1ac1817556eb89419b20e723c11df30, type: 3}
+    - target: {fileID: 2069641530807301002, guid: 9499ff64b68cb284e81d41100107e2e8, type: 3}
+      propertyPath: sounds.Array.data[6].name
+      value: ZombieDeath
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069641530807301002, guid: 9499ff64b68cb284e81d41100107e2e8, type: 3}
+      propertyPath: sounds.Array.data[6].type
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069641530807301002, guid: 9499ff64b68cb284e81d41100107e2e8, type: 3}
       propertyPath: sounds.Array.data[5].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069641530807301002, guid: 9499ff64b68cb284e81d41100107e2e8, type: 3}
+      propertyPath: sounds.Array.data[6].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2069641530807301002, guid: 9499ff64b68cb284e81d41100107e2e8, type: 3}
@@ -524,7 +539,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2069641530807301002, guid: 9499ff64b68cb284e81d41100107e2e8, type: 3}
+      propertyPath: sounds.Array.data[6].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069641530807301002, guid: 9499ff64b68cb284e81d41100107e2e8, type: 3}
       propertyPath: sounds.Array.data[5].cooldown
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069641530807301002, guid: 9499ff64b68cb284e81d41100107e2e8, type: 3}
+      propertyPath: sounds.Array.data[6].cooldown
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3140528107388102186, guid: 9499ff64b68cb284e81d41100107e2e8, type: 3}

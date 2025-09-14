@@ -96,6 +96,8 @@ public class ActionPhaseManager : MonoBehaviour
 
     public void EnemyDied()
     {
+
+        AudioManager.Instance.PlaySound(SoundType.ZombieDeath);
         deathsThisLevel++;
         if (deathsThisLevel >= expectedDeathsThisLevel && expectedDeathsThisLevel > 0)
         {

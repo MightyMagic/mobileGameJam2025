@@ -10212,10 +10212,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1007204476}
     - target: {fileID: 4948355763499152900, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
-      propertyPath: actionButton
-      value: 
-      objectReference: {fileID: 1000163890}
-    - target: {fileID: 4948355763499152900, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
       propertyPath: resourceTextDisplay
       value: 
       objectReference: {fileID: 808523399}
