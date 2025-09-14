@@ -21,13 +21,16 @@ public class UpgradeManager : MonoBehaviour
 
     [Header("Weapon Component References")]
     public FlameThrowerWeapon flameThrowerWeapon;
+    public SawWeapon sawWeapon; // <-- Добавлено
+    public MachineGunWeapon machineGunWeapon; // <-- Добавлено
+    public RocketWeapon rocketWeapon; // <-- Добавлено
 
     private void Awake()
     {
-       if (Instance == null)
-       {
-           Instance = this;
-       }
+        if (Instance == null)
+        {
+            Instance = this;
+        }
         //else
         //{
         //    Destroy(gameObject);
@@ -76,8 +79,6 @@ public class UpgradeManager : MonoBehaviour
         {
             GameManager.Instance.AddChoicePoints(-selected.cost);
             ApplyUpgrade(selected);
-
-            // Inventory.Instance.AddItem(selected); // Добавьте, если нужно
 
             HideUpgradePanel();
         }
@@ -146,13 +147,17 @@ public class UpgradeManager : MonoBehaviour
             case UpgradeType.Equipment_Flamethrower:
                 if (flameThrowerWeapon != null)
                 {
-                    // Сначала добавляем предмет в инвентарь
                     Inventory.Instance.AddItem(card);
-                    // Затем экипируем его
                     Inventory.Instance.EquipItem(card);
 
-                    // Активируем компонент оружия
                     flameThrowerWeapon.ActivateWeapon(card);
+                }
+                break;
+
+            case UpgradeType.Upgrade_Flamethrower:
+                if (flameThrowerWeapon != null)
+                {
+                    flameThrowerWeapon.ApplyUpgradeStats(card);
                 }
                 break;
 
@@ -160,31 +165,24 @@ public class UpgradeManager : MonoBehaviour
             case UpgradeType.Equipment_Saw:
                 if (sawWeapon != null)
                 {
-                    // Сначала добавляем предмет в инвентарь
                     Inventory.Instance.AddItem(card);
-                    // Затем экипируем его
                     Inventory.Instance.EquipItem(card);
-
-                    // Активируем компонент оружия
                     sawWeapon.ActivateWeapon(card);
                 }
                 break;
             case UpgradeType.Upgrade_Saw:
-                 if (sawWeapon != null) {
-                     sawWeapon.UpgradeWeapon(card);
-                 }
+                if (sawWeapon != null)
+                {
+                    //sawWeapon.UpgradeWeapon(card);
+                }
                 break;
 
             // --- MACHINE GUN ---
             case UpgradeType.Equipment_MachineGun:
                 if (machineGunWeapon != null)
                 {
-                    // Сначала добавляем предмет в инвентарь
                     Inventory.Instance.AddItem(card);
-                    // Затем экипируем его
                     Inventory.Instance.EquipItem(card);
-
-                    // Активируем компонент оружия
                     machineGunWeapon.ActivateWeapon(card);
                 }
                 break;
@@ -193,13 +191,16 @@ public class UpgradeManager : MonoBehaviour
             case UpgradeType.Equipment_Rocket:
                 if (rocketWeapon != null)
                 {
-                    // Сначала добавляем предмет в инвентарь
                     Inventory.Instance.AddItem(card);
-                    // Затем экипируем его
                     Inventory.Instance.EquipItem(card);
-
-                    // Активируем компонент оружия
                     rocketWeapon.ActivateWeapon(card);
+                }
+                break;
+
+            case UpgradeType.Upgrade_Rocket:
+                if (rocketWeapon != null)
+                {
+                    // Логика апгрейда ракетницы
                 }
                 break;
 
@@ -220,17 +221,14 @@ public class UpgradeManager : MonoBehaviour
     {
         if (Inventory.Instance == null) return false;
 
-        // Loop through all items in our inventory
         foreach (var item in Inventory.Instance.GetItems())
         {
-            // Check if any item's type matches the base equipment type we're looking for
             if (item.type == baseEquipmentType)
             {
-                return true; // We found it!
+                return true;
             }
         }
-
-        return false; // We don't own it
+        return false;
     }
 
     // Вспомогательный метод для получения базового типа пушки из апгрейда

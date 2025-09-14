@@ -73,6 +73,7 @@
     <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\Turret\Projectile\Rocket.cs" />
     <Compile Include="Assets\Script\UpgradePhaseManager.cs" />
+    <Compile Include="Assets\Script\WeaponScripts\SawWeapon.cs" />
     <Compile Include="Assets\Script\UpgradeData.cs" />
     <Compile Include="Assets\Script\PlayerEquipmentManager.cs" />
     <Compile Include="Assets\Script\UpgradeManager.cs" />
@@ -93,11 +94,13 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
     <Compile Include="Assets\Script\Andrei\ResourceDisplayUI.cs" />
     <Compile Include="Assets\Script\EnemySpawner.cs" />
+    <Compile Include="Assets\Script\WeaponScripts\RocketWeapon.cs" />
     <Compile Include="Assets\Script\Turret\Projectile\Projectile.cs" />
     <Compile Include="Assets\Script\Turret\SawTurret.cs" />
     <Compile Include="Assets\Script\WeaponScripts\CannonScript.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
     <Compile Include="Assets\Script\UpgradeType.cs" />
+    <Compile Include="Assets\Script\WeaponScripts\MachineGunWeapon.cs" />
     <Compile Include="Assets\Script\Andrei\TileManager.cs" />
     <Compile Include="Assets\Script\InventoryUI.cs" />
     <Compile Include="Assets\Script\PlayerWeaponController.cs" />
