@@ -256,9 +256,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   flameThrowerWeapon: {fileID: 2099239685592660298}
-  sawWeapon: {fileID: 0}
-  machineGunWeapon: {fileID: 0}
-  rocketWeapon: {fileID: 0}
+  sawWeapon: {fileID: 89480525117324935}
+  machineGunWeapon: {fileID: 8396339738689029035}
+  rocketWeapon: {fileID: 8530445643619429925}
 --- !u!114 &6602340454464148574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +378,9 @@ GameObject:
   - component: {fileID: 5600157608702791864}
   - component: {fileID: 2099239685592660298}
   - component: {fileID: 6768390736656193302}
+  - component: {fileID: 8396339738689029035}
+  - component: {fileID: 8530445643619429925}
+  - component: {fileID: 89480525117324935}
   m_Layer: 0
   m_Name: PlayerEquipment
   m_TagString: Untagged
@@ -439,9 +442,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flamethrower: {fileID: 2099239685592660298}
-  saw: {fileID: 0}
-  machineGun: {fileID: 0}
-  rocket: {fileID: 0}
+  saw: {fileID: 89480525117324935}
+  machineGun: {fileID: 8396339738689029035}
+  rocket: {fileID: 8530445643619429925}
+--- !u!114 &8396339738689029035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8466229140808526033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77d6aa39b936bf4289e8c4cfff69fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  maxLevel: 8
+--- !u!114 &8530445643619429925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8466229140808526033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cd96ed5c15fdfa4bbfd6cc04eb4c31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  maxLevel: 8
+--- !u!114 &89480525117324935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8466229140808526033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a3396f7027c884598c950623cf5c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  maxLevel: 8
 --- !u!1001 &8825508795365235116
 PrefabInstance:
   m_ObjectHideFlags: 0

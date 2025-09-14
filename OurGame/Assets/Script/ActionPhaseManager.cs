@@ -42,7 +42,7 @@ public class ActionPhaseManager : MonoBehaviour
 
          Debug.Log("Action PHASE STARTED: Enabling action tools!");
 
-         //actionButton.SetActive(false);
+         actionButton.SetActive(false);
 
          deathsThisLevel = 0;
          expectedDeathsThisLevel = CalculateEnemies();

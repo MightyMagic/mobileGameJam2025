@@ -14,7 +14,7 @@ public class BuildManager : MonoBehaviour
 
     [Header("Player Resources")]
     [Tooltip("The primary currency for building rails.")]
-    [SerializeField] private int railResources = 10;
+    public int railResources = 10;
 
     //[SerializeField] GameObject tileGameObjects;
 
