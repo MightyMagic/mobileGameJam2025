@@ -184,12 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55831ba36265448469c55af608daccf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageOverTime: 10
-  damageInterval: 0.5
-  sawRadius: 1.03
-  sawRotationSpeed: 200
+  sawRotationSpeed: 360
   bladeRotationSpeed: 500
-  enemyTag: Enemy
   sawBlade: {fileID: 2749228318900718154}
 --- !u!1001 &4676593335610949682
 PrefabInstance:

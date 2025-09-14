@@ -7815,7 +7815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f2ad56a0cb4254b9a34a44f14fd885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moverPrefab: {fileID: 805912109374133507, guid: 6170625ba33e8e740999f01d535b9f1f, type: 3}
+  moverPrefab: {fileID: 8211267549040111233, guid: d65a0e96c2a0eee4a8265e8ee24d6cce, type: 3}
   moveSpeed: 5
   inputThreshold: 0.3
   moveInput: {x: 0, y: 0}

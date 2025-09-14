@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  damage: 20
+  damage: 90
   explosionRadius: 2
   explosionEffect: {fileID: 0}
   enemyTag: Enemy

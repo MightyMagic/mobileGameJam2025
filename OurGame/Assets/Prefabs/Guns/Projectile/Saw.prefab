@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfd80d52c0105d48b59e7f4182befc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageOverTime: 10
-  damageInterval: 0.5
+  damageOverTime: 3
+  damageInterval: 0.1
   damageRadius: 0.88
   enemyTag: Enemy
