@@ -43,3 +43,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Map
+    uniqueID: 347055229
+    locked: 0
+  - name: Mob
+    uniqueID: 276251253
+    locked: 0
+  - name: Top
+    uniqueID: 297828255
+    locked: 0
+  - name: UI
+    uniqueID: 2237823117
+    locked: 0

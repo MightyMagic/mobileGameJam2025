@@ -78,6 +78,7 @@
     <Compile Include="Assets\Script\Andrei\BuildManager.cs" />
     <Compile Include="Assets\Animation\SwayAnimation.cs" />
     <Compile Include="Assets\Script\Turret\MachineGunTurret.cs" />
+    <Compile Include="Assets\Script\SoundManager.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\Andrei\TileObject.cs" />
     <Compile Include="Assets\Script\Turret\Projectile\SawBladeDamage.cs" />
