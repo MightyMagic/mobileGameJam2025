@@ -1,24 +1,43 @@
 using UnityEngine;
-using TMPro; // Добавьте эту строку для работы с TextMeshPro
+using UnityEngine.UI;
+using TMPro; // Убедитесь, что у вас есть это для TextMeshPro
 
 public class PlayerBase : MonoBehaviour
 {
+    [Header("Health")]
     public float maxHealth = 100f;
     public float currentHealth;
-    public TextMeshProUGUI healthText; // Ссылка на UI TextMeshPro
+
+    [Header("UI")]
+    public Slider healthSlider; // Ссылка на наш Slider
+    public TextMeshProUGUI healthText; // (Необязательно) Ссылка на текст
 
     void Start()
     {
         currentHealth = maxHealth;
-        UpdateHealthDisplay();
+        // Устанавливаем начальные значения для Slider
+        if (healthSlider != null)
+        {
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = currentHealth;
+        }
+        // Обновляем текст
+        UpdateHealthUI();
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float amount)
     {
-        currentHealth -= damage;
-        Debug.Log($"Player Base took {damage} damage. Remaining health: {currentHealth}");
+        currentHealth -= amount;
+        Debug.Log("Base Health: " + currentHealth);
 
-        UpdateHealthDisplay();
+        // Обновляем Slider
+        if (healthSlider != null)
+        {
+            healthSlider.value = currentHealth;
+        }
+
+        // Обновляем текст
+        UpdateHealthUI();
 
         if (currentHealth <= 0)
         {
@@ -26,19 +45,17 @@ public class PlayerBase : MonoBehaviour
         }
     }
 
-    private void UpdateHealthDisplay()
+    private void UpdateHealthUI()
     {
         if (healthText != null)
         {
-            // Обновляем текст, чтобы показать текущее здоровье
-            healthText.text = currentHealth.ToString("F0"); // "F0" округляет число до целого
+            healthText.text = currentHealth.ToString("0") + "/" + maxHealth.ToString("0");
         }
     }
 
     private void Die()
     {
-        Debug.Log("Player Base has been destroyed! Game Over.");
-        // Здесь можно добавить логику завершения игры, например, показ меню
-        Destroy(gameObject);
+        Debug.Log("Game Over!");
+        // Добавьте сюда логику конца игры
     }
 }
