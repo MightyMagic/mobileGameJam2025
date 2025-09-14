@@ -16,7 +16,7 @@ MonoBehaviour:
   description: "\u0421\u0442\u0430\u0431\u0438\u043B\u044C\u043D\u044B\u0439 \u0444\u043E\u043A\u0443\u0441
     \u043F\u043E \u043E\u0434\u043D\u043E\u0439 \u0446\u0435\u043B\u0438"
   cost: 10
-  cardIcon: {fileID: 21300000, guid: fb19638cea2cfb34d9c65d33d29df5e7, type: 3}
-  inventoryIcon: {fileID: 21300000, guid: fb19638cea2cfb34d9c65d33d29df5e7, type: 3}
+  cardIcon: {fileID: 21300000, guid: 2f818c06afe0c7b42845f0e26bd73dd9, type: 3}
+  inventoryIcon: {fileID: 21300000, guid: 2f818c06afe0c7b42845f0e26bd73dd9, type: 3}
   type: 2
   value: 1
