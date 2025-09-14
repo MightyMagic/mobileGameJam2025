@@ -99,6 +99,7 @@
     <Compile Include="Assets\Script\WeaponScripts\RocketWeapon.cs" />
     <Compile Include="Assets\Script\Turret\Projectile\Projectile.cs" />
     <Compile Include="Assets\Script\Turret\SawTurret.cs" />
+    <Compile Include="Assets\Script\SoundToggleButton.cs" />
     <Compile Include="Assets\Script\WeaponScripts\CannonScript.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
     <Compile Include="Assets\Script\UpgradeType.cs" />
