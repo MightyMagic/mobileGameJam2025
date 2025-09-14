@@ -163,11 +163,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8213999557961963461, guid: 856a338f56121144992599922b4cae79, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8213999557961963461, guid: 856a338f56121144992599922b4cae79, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8213999557961963461, guid: 856a338f56121144992599922b4cae79, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8213999557961963461, guid: 856a338f56121144992599922b4cae79, type: 3}
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8081782995354790994, guid: 856a338f56121144992599922b4cae79, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 856a338f56121144992599922b4cae79, type: 3}
@@ -234,7 +247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9046035438653915729, guid: 0bc56f23b5e3a8c4ca6522c7d9b069dd, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -299,6 +312,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5137330662651629329, guid: d65a0e96c2a0eee4a8265e8ee24d6cce, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8211267549040111233, guid: d65a0e96c2a0eee4a8265e8ee24d6cce, type: 3}
       propertyPath: m_Name
       value: PlayerRocket
@@ -330,6 +347,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 103423834134627805}
     m_Modifications:
+    - target: {fileID: 2520418984340990930, guid: 1f49aa0a26d780c4cbfd92342fd584fa, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4118502839167301937, guid: 1f49aa0a26d780c4cbfd92342fd584fa, type: 3}
       propertyPath: m_Name
       value: Player_MachineGun
@@ -408,6 +429,10 @@ PrefabInstance:
     - target: {fileID: 805912109374133507, guid: 6170625ba33e8e740999f01d535b9f1f, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213839381124928617, guid: 6170625ba33e8e740999f01d535b9f1f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4078149601921710568, guid: 6170625ba33e8e740999f01d535b9f1f, type: 3}
       propertyPath: m_LocalPosition.x
