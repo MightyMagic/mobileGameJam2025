@@ -187,3 +187,12 @@ MonoBehaviour:
     cooldown: 0.3
     source: {fileID: 0}
     lastTimePlayed: 0
+  - name: Rpg
+    type: 4
+    clip: {fileID: 8300000, guid: 0abb0a33d4fa4c143a6d96350f2254b9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    cooldown: 0.3
+    source: {fileID: 0}
+    lastTimePlayed: 0

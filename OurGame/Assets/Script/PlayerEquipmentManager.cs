@@ -14,7 +14,7 @@ public class PlayerEquipmentManager : MonoBehaviour
     public void EquipWeapon(UpgradeType type)
     {
         // Деактивируем все оружия, чтобы не было конфликта
-        DeactivateAllWeapons();
+        //DeactivateAllWeapons();
 
         // Активируем нужный префаб на основе типа апгрейда
         switch (type)

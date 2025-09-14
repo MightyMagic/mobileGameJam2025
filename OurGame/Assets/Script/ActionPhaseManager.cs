@@ -53,6 +53,8 @@ public class ActionPhaseManager : MonoBehaviour
          spawner.ResetWaves();
          spawner.StartSpawning();
 
+        BuildManager.Instance.TileColliders(false);
+
          UpdateEquippedWeaponFromInventory();
 
     }
