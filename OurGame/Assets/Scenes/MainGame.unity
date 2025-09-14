@@ -3692,7 +3692,6 @@ MonoBehaviour:
   upgradePanel: {fileID: 4265979636232194637}
   cardTitles: []
   cardDescriptions: []
-  cardCosts: []
   cardIcons:
   - {fileID: 4265979636232194640}
   - {fileID: 4265979636232194639}
