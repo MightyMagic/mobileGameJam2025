@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cdf344753367641b66afb2c68c32d9, type: 3}
   m_Name: Equipment_Saw
   m_EditorClassIdentifier: 
-  upgradeName: 
+  upgradeName: "\u042D\u043A\u0432\u0438\u043F \u041F\u0438\u043B\u0430"
   description: 
   cost: 10
   cardIcon: {fileID: 0}

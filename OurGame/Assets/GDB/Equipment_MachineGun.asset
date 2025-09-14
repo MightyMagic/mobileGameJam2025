@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cdf344753367641b66afb2c68c32d9, type: 3}
   m_Name: Equipment_MachineGun
   m_EditorClassIdentifier: 
-  upgradeName: 
+  upgradeName: "\u042D\u043A\u0432\u0438\u043F \u041C\u0430\u0448\u0438\u043D\u0433\u0430\u043D"
   description: 
   cost: 10
   cardIcon: {fileID: 0}

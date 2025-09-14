@@ -146,44 +146,61 @@ public class UpgradeManager : MonoBehaviour
             case UpgradeType.Equipment_Flamethrower:
                 if (flameThrowerWeapon != null)
                 {
-                    flameThrowerWeapon.ActivateWeapon(card); // Activates the component
-                    Inventory.Instance.AddItem(card); // Adds to inventory so we know we own it
-                }
-                break;
-            case UpgradeType.Upgrade_Flamethrower:
-                if (flameThrowerWeapon != null)
-                {
-                    flameThrowerWeapon.UpgradeWeapon(card); // Calls the upgrade logic
+                    // Сначала добавляем предмет в инвентарь
+                    Inventory.Instance.AddItem(card);
+                    // Затем экипируем его
+                    Inventory.Instance.EquipItem(card);
+
+                    // Активируем компонент оружия
+                    flameThrowerWeapon.ActivateWeapon(card);
                 }
                 break;
 
             // --- SAW ---
             case UpgradeType.Equipment_Saw:
-                // if (sawWeapon != null) {
-                //    sawWeapon.ActivateWeapon(card);
-                //    Inventory.Instance.AddItem(card);
-                // }
+                if (sawWeapon != null)
+                {
+                    // Сначала добавляем предмет в инвентарь
+                    Inventory.Instance.AddItem(card);
+                    // Затем экипируем его
+                    Inventory.Instance.EquipItem(card);
+
+                    // Активируем компонент оружия
+                    sawWeapon.ActivateWeapon(card);
+                }
                 break;
             case UpgradeType.Upgrade_Saw:
-                // if (sawWeapon != null) {
-                //     sawWeapon.UpgradeWeapon(card);
-                // }
+                 if (sawWeapon != null) {
+                     sawWeapon.UpgradeWeapon(card);
+                 }
                 break;
 
             // --- MACHINE GUN ---
             case UpgradeType.Equipment_MachineGun:
-                // Logic for Machine Gun activate
-                break;
-            case UpgradeType.Upgrade_MachineGun:
-                // Logic for Machine Gun upgrade
+                if (machineGunWeapon != null)
+                {
+                    // Сначала добавляем предмет в инвентарь
+                    Inventory.Instance.AddItem(card);
+                    // Затем экипируем его
+                    Inventory.Instance.EquipItem(card);
+
+                    // Активируем компонент оружия
+                    machineGunWeapon.ActivateWeapon(card);
+                }
                 break;
 
             // --- ROCKET ---
             case UpgradeType.Equipment_Rocket:
-                // Logic for Rocket activate
-                break;
-            case UpgradeType.Upgrade_Rocket:
-                // Logic for Rocket upgrade
+                if (rocketWeapon != null)
+                {
+                    // Сначала добавляем предмет в инвентарь
+                    Inventory.Instance.AddItem(card);
+                    // Затем экипируем его
+                    Inventory.Instance.EquipItem(card);
+
+                    // Активируем компонент оружия
+                    rocketWeapon.ActivateWeapon(card);
+                }
                 break;
 
             // --- OTHER ---

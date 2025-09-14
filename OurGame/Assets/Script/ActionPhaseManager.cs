@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class ActionPhaseManager : MonoBehaviour
 {
-    // Public getter so other scripts can read the total
-    
     public static ActionPhaseManager Instance;
 
     [SerializeField] private RailMover moveScript;
-    //[SerializeField] private GameObject canvasObject;
     [SerializeField] EnemySpawner spawner;
+    [SerializeField] private PlayerEquipmentManager playerEquipmentManager;
 
     public int currentLevel = 0;
     public int deathsThisLevel;
-
     public int expectedDeathsThisLevel = 0;
 
     private void Awake()
@@ -26,7 +23,6 @@ public class ActionPhaseManager : MonoBehaviour
         else
         {
             Instance = this;
-            // DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -34,10 +30,7 @@ public class ActionPhaseManager : MonoBehaviour
     {
         Debug.Log("Action PHASE STARTED: Enabling action tools!");
 
-        //canvasObject.SetActive(true);
-
         deathsThisLevel = 0;
-
         expectedDeathsThisLevel = CalculateEnemies();
 
         moveScript.InitializeMover();
@@ -45,13 +38,30 @@ public class ActionPhaseManager : MonoBehaviour
 
         spawner.ResetWaves();
         spawner.StartSpawning();
+
+        UpdateEquippedWeaponFromInventory();
+    }
+
+    private void UpdateEquippedWeaponFromInventory()
+    {
+        // Получаем текущий активный предмет из инвентаря
+        UpgradeData equippedItem = Inventory.Instance.GetEquippedItem();
+
+        if (equippedItem != null)
+        {
+            playerEquipmentManager.EquipWeapon(equippedItem.type);
+        }
+        else
+        {
+            Debug.LogWarning("No weapon is currently equipped!");
+        }
     }
 
     public int CalculateEnemies()
     {
         int expectedEnemies = 0;
 
-        if(currentLevel < spawner.levels.Count)
+        if (currentLevel < spawner.levels.Count)
         {
             for (int i = 0; i < spawner.levels[currentLevel].waves.Count; i++)
             {
@@ -59,7 +69,6 @@ public class ActionPhaseManager : MonoBehaviour
                 {
                     expectedEnemies += spawner.levels[currentLevel].waves[i].enemyGroups[j].numberOfEnemies;
                 }
-
             }
         }
 
@@ -70,7 +79,7 @@ public class ActionPhaseManager : MonoBehaviour
     {
         deathsThisLevel++;
 
-        if(deathsThisLevel >= expectedDeathsThisLevel && expectedDeathsThisLevel > 0)
+        if (deathsThisLevel >= expectedDeathsThisLevel && expectedDeathsThisLevel > 0)
         {
             Debug.Log("Everyone died!!!!!!!!!!");
             EveryoneDied();
@@ -80,24 +89,12 @@ public class ActionPhaseManager : MonoBehaviour
     public void EveryoneDied()
     {
         currentLevel++;
-        //moveScript.DisableMover(); // Эта строка не нужна здесь.
-        //GameManager.Instance.BeginBuildPhase(); // Заменяем этот вызов
-
-        // Вместо прямого вызова Build-фазы, мы возвращаемся к менеджеру апгрейдов
-        // Он проверит, нужно ли показывать карточки, и только потом запустит Build-фазу
         GameManager.Instance.BeginUpgradeCheck();
     }
 
-    // This runs when the action phase starts
     private void DisableAction()
     {
-
         Debug.Log("Build PHASE Started: Disabling action tools.");
-
-        //currentLevel++;
-
-        //canvasObject.SetActive(false);
-
         moveScript.DisableMover();
     }
 
@@ -107,7 +104,6 @@ public class ActionPhaseManager : MonoBehaviour
         GameManager.OnBuildPhaseStart += DisableAction;
     }
 
-    // 2. ALWAYS unsubscribe when the object is disabled to prevent errors
     void OnDisable()
     {
         GameManager.OnActionPhaseStart -= EnableAction;

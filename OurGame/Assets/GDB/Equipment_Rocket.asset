@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cdf344753367641b66afb2c68c32d9, type: 3}
   m_Name: Equipment_Rocket
   m_EditorClassIdentifier: 
-  upgradeName: 
+  upgradeName: "\u042D\u043A\u0432\u0438\u043F \u0420\u0430\u043A\u0435\u0442\u043D\u0438\u0446\u0430"
   description: 
   cost: 10
   cardIcon: {fileID: 0}

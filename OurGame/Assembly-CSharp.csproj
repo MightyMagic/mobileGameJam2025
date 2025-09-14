@@ -74,6 +74,7 @@
     <Compile Include="Assets\Script\Turret\Projectile\Rocket.cs" />
     <Compile Include="Assets\Script\UpgradePhaseManager.cs" />
     <Compile Include="Assets\Script\UpgradeData.cs" />
+    <Compile Include="Assets\Script\PlayerEquipmentManager.cs" />
     <Compile Include="Assets\Script\UpgradeManager.cs" />
     <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
     <Compile Include="Assets\Script\RailMover.cs" />
