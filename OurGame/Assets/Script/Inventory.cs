@@ -1,4 +1,3 @@
-// Inventory.cs (обновленный код)
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +11,7 @@ public class Inventory : MonoBehaviour
     public event Action<UpgradeData> OnItemEquipped;
 
     private List<UpgradeData> items = new List<UpgradeData>();
-    private UpgradeData equippedItem;
+    private List<UpgradeData> equippedItems = new List<UpgradeData>();
 
     public int maxSlots = 6;
 
@@ -36,7 +35,6 @@ public class Inventory : MonoBehaviour
             return false;
         }
 
-        // Предмет сначала добавляется в инвентарь
         items.Add(item);
         OnItemAdded?.Invoke(item);
         return true;
@@ -49,20 +47,28 @@ public class Inventory : MonoBehaviour
 
     public void EquipItem(UpgradeData item)
     {
-        if (items.Contains(item))
+        if (items.Contains(item) && !equippedItems.Contains(item))
         {
-            equippedItem = item;
-            OnItemEquipped?.Invoke(equippedItem);
+            equippedItems.Add(item);
+            OnItemEquipped?.Invoke(item);
             Debug.Log($"Equipped: {item.upgradeName}");
         }
         else
         {
-            Debug.LogWarning("Cannot equip item. It is not in the inventory.");
+            Debug.LogWarning("Cannot equip item. It is not in the inventory or already equipped.");
         }
     }
 
-    public UpgradeData GetEquippedItem()
+    public List<UpgradeData> GetEquippedItems()
     {
-        return equippedItem;
+        return equippedItems;
+    }
+
+    public void UnequipItem(UpgradeData item)
+    {
+        if (equippedItems.Contains(item))
+        {
+            equippedItems.Remove(item);
+        }
     }
 }

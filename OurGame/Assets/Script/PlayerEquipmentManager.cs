@@ -1,5 +1,5 @@
-// PlayerEquipmentManager.cs
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerEquipmentManager : MonoBehaviour
 {
@@ -14,10 +14,7 @@ public class PlayerEquipmentManager : MonoBehaviour
     public void EquipWeapon(UpgradeType type)
     {
         // Деактивируем все оружия, чтобы не было конфликта
-        if (flamethrowerPrefab != null) flamethrowerPrefab.SetActive(false);
-        if (sawPrefab != null) sawPrefab.SetActive(false);
-        if (machineGunPrefab != null) machineGunPrefab.SetActive(false);
-        if (rocketPrefab != null) rocketPrefab.SetActive(false);
+        DeactivateAllWeapons();
 
         // Активируем нужный префаб на основе типа апгрейда
         switch (type)
@@ -35,5 +32,14 @@ public class PlayerEquipmentManager : MonoBehaviour
                 if (rocketPrefab != null) rocketPrefab.SetActive(true);
                 break;
         }
+    }
+
+    // Вспомогательный метод для деактивации всего оружия
+    public void DeactivateAllWeapons()
+    {
+        if (flamethrowerPrefab != null) flamethrowerPrefab.SetActive(false);
+        if (sawPrefab != null) sawPrefab.SetActive(false);
+        if (machineGunPrefab != null) machineGunPrefab.SetActive(false);
+        if (rocketPrefab != null) rocketPrefab.SetActive(false);
     }
 }

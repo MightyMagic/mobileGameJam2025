@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     // --- CHOICE POINTS ---
     private int choicePoints = 0;
-    private TextMeshProUGUI choicePointsText;
+    public TextMeshProUGUI choicePointsText; // Сделано публичным для назначения в редакторе Unity
     public int ChoicePoints => choicePoints;
 
     private void Awake()
@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ChangeState(GameState.BuildPhase);
+        UpdateChoicePointsText(); // Добавлено для инициализации текста
     }
 
     // --- Public API ---
