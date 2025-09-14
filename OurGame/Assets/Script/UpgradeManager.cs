@@ -82,6 +82,8 @@ public class UpgradeManager : MonoBehaviour
 
             HideUpgradePanel();
         }
+
+        BuildManager.Instance.TileColliders(true);
     }
 
     private void HideUpgradePanel()

@@ -55,6 +55,8 @@ public class BuildManager : MonoBehaviour
             tileCollider[i].enabled = true;
         }
 
+        TileColliders(true);
+
         OnResourcesUpdated?.Invoke(railResources);
         // Your logic here:
         // e.g., showBuildCursor = true;
@@ -71,6 +73,8 @@ public class BuildManager : MonoBehaviour
         {
             tileCollider[i].enabled = false;
         }
+
+        TileColliders(false);
 
         // Your logic here:
         // e.g., showBuildCursor = false;
@@ -121,6 +125,14 @@ public class BuildManager : MonoBehaviour
 
         Debug.LogWarning($"Not enough resources! Need: {cost}, Have: {railResources}");
         return false; // Purchase failed
+    }
+
+    public void TileColliders(bool activate)
+    {
+        for (int i = 0; i < tileCollider.Count; ++i)
+        {
+            tileCollider[i].enabled = activate;
+        }
     }
 
     /// <summary>
