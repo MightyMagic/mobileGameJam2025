@@ -10316,6 +10316,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 895614670}
     - target: {fileID: 6896779909449874870, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
+      propertyPath: railResources
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6896779909449874870, guid: 3507995cfc81f874a8435aef26662b83, type: 3}
       propertyPath: tileCollider.Array.data[0]
       value: 
       objectReference: {fileID: 1355032109}
