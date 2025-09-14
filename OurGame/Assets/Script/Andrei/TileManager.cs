@@ -10,9 +10,11 @@ public class TileManager : MonoBehaviour
     [SerializeField] List<TileObject> tileObjects = new List<TileObject>();
     [SerializeField] int tilesInLine = 7;
 
-    public List<TileObject> occupiedTiles = new List<TileObject>();
 
-    
+    public List<TileObject> occupiedTiles = new List<TileObject>();
+    public List<GameObject> visualTiles = new List<GameObject>();
+    public Sprite occupiedSprite;
+
 
     [Header("Tile Costs")]
     public int tileCost = 1;
@@ -41,14 +43,18 @@ public class TileManager : MonoBehaviour
    
     void Start()
     {
-        AssignCoordinates(); 
+        AssignCoordinates();
+        ConnectVisual();
     }
 
-    void Update()
+    public void ConnectVisual()
     {
-        
+        for(int i = 0; i < tileObjects.Count; i++)
+        {
+            tileObjects[i].AssignSprites(visualTiles[i], occupiedSprite);
+        }
     }
-
+    
     // 2. NEW: This method is called BY the tile when it is clicked.
     public void AttemptOccupyTile(TileObject tile)
     {
@@ -189,7 +195,7 @@ public class TileManager : MonoBehaviour
 
         // --- 1. Handle Edge Cases ---
         // If there are no tiles or only one tile occupied, the net is "connected" by default.
-        if (occupiedTiles.Count <= 1)
+        if (occupiedTiles.Count == 1)
         {
             return true;
         }

@@ -10,16 +10,24 @@ public class TileObject : MonoBehaviour
     public bool occupied = false; // Corrected spelling
     public bool canPlace = true;
 
-    private Collider2D touchCollider;
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] SpriteRenderer spriteRenderer;
 
-    public Sprite originalSprite;
-    public Sprite ocuppiedSprite;
+    Sprite originalSprite;
+    public Sprite occupiedSprite;
 
     void Start()
     {
-        touchCollider = this.transform.GetChild(0).GetComponent<Collider2D>();
-        spriteRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        //touchCollider = this.transform.GetChild(0).GetComponent<Collider2D>();
+        //spriteRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+
+        //originalSprite = spriteRenderer.sprite;
+    }
+
+    public void AssignSprites(GameObject original, Sprite occupiedSprite)
+    {
+        spriteRenderer = original.GetComponent<SpriteRenderer>();
+        originalSprite = spriteRenderer.sprite;
+        this.occupiedSprite = occupiedSprite;    
     }
 
     
@@ -52,10 +60,10 @@ public class TileObject : MonoBehaviour
     public void SetOccupied()
     {
         occupied = true;
-        spriteRenderer.color = Color.red;
+        //spriteRenderer.color = Color.red;
 
         // Uncomment this if you prefer using the sprite swap
-        // spriteRenderer.sprite = occupiedSprite;
+        spriteRenderer.sprite = occupiedSprite;
     }
 
     public void SetFree()
@@ -63,6 +71,8 @@ public class TileObject : MonoBehaviour
         BuildManager.Instance.AddResources(TileManager.Instance.tileCost);
         TileManager.Instance.RemoveTile(this);
         occupied = false;
-        spriteRenderer.color = Color.white;
+        //spriteRenderer.color = Color.white;
+
+        spriteRenderer.sprite = originalSprite;
     }
 }
