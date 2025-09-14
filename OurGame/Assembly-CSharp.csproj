@@ -70,11 +70,13 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
     <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\Turret\Projectile\Rocket.cs" />
+    <Compile Include="Assets\Script\UpgradePhaseManager.cs" />
     <Compile Include="Assets\Script\UpgradeData.cs" />
     <Compile Include="Assets\Script\UpgradeManager.cs" />
     <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
     <Compile Include="Assets\Script\RailMover.cs" />
     <Compile Include="Assets\Script\Andrei\BuildManager.cs" />
+    <Compile Include="Assets\Animation\SwayAnimation.cs" />
     <Compile Include="Assets\Script\Turret\MachineGunTurret.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\Andrei\TileObject.cs" />

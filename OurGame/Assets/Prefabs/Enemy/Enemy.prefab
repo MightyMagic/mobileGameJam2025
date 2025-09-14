@@ -98,10 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1224a483f4e915c4e90ac9f13215c5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 40
   currentHealth: 0
-  moveSpeed: 1
+  moveSpeed: 1.2
   damage: 5
+  choicePointsOnDeath: 10
   target: {fileID: 0}
   attackDelay: 1
   attackRange: 1
